@@ -1,0 +1,222 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #000 70%, #001f3f 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilos do Header */
+header {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #007bff;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo span {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-right: 0.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+}
+
+header .logo img {
+    width: 40px;
+    height: auto;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #007bff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+header nav a:hover {
+    background-color: #0056b3;
+    border: 2px solid #fff;
+}
+
+/* Estilos do Main */
+main {
+    padding: 1rem;
+    text-align: center;
+    flex: 1;
+}
+
+/* Estilos do Perfil (Comum para Empresa e Candidato) */
+.perfil {
+    background-color: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.perfil h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+}
+
+.dados-perfil {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    background-color: #333; /* Fundo escuro para as informações */
+    padding: 1rem;
+    border-radius: 8px;
+    border: 2px solid #007bff; /* Borda azul */
+}
+
+.dados-perfil p {
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.dados-perfil p strong {
+    color: #007bff;
+}
+
+.foto-perfil {
+    margin-right: 15px;
+}
+
+.foto-perfil-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.informacoes-perfil p {
+    margin: 3px 0;
+}
+
+/* Estilos da página de Listagem (Candidatos ou Empresas) */
+.lista-cadastrados {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.lista-cadastrados h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+}
+
+.lista-cadastrados .lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.lista-cadastrados .item {
+    width: calc(20% - 1rem); /* 5 itens por linha */
+    background-color: #333; /* Fundo escuro para os cards */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 2px solid #007bff; /* Borda azul */
+}
+
+.lista-cadastrados .item:hover {
+    transform: scale(1.05);
+}
+
+.lista-cadastrados .item img {
+    width: 100%;
+    height: 300px; /* Altura fixa para o formato vertical */
+    object-fit: cover; /* Mantém a proporção da imagem */
+    border-bottom: 4px solid #007bff;
+}
+
+.lista-cadastrados .item .detalhes {
+    padding: 10px;
+}
+
+.lista-cadastrados .item .detalhes h3 {
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.lista-cadastrados .item .detalhes p {
+    font-size: 0.9rem;
+    color: #fff;
+    margin-bottom: 0.3rem;
+}
+
+.lista-cadastrados .item .acoes .btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.lista-cadastrados .item .acoes .btn:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 0.8rem 0;
+    margin-top: auto;
+    border-top: 2px solid #007bff;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .lista-cadastrados .item {
+        width: calc(50% - 1rem); /* 2 itens por linha em telas menores */
+    }
+}
