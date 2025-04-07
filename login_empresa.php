@@ -36,7 +36,7 @@ unset($_SESSION['mensagem']); // Remove a mensagem após exibi-la
 
     <main>
         <section class="login">
-            <h1>Login de Empresa teste</h1>
+            <h1>Login de Empresa teste 2</h1>
             <!-- Exibe a notificação se houver -->
             <?php if (!empty($mensagem)): ?>
                 <div class="notificacao <?php echo (strpos($mensagem, 'sucesso') !== false ? 'success' : 'error'); ?>">
