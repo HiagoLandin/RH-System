@@ -10,9 +10,14 @@ if (!isset($_SESSION['empresa_id'])) {
 
 require_once 'Empresa.php';
 require_once 'Usuario.php'; // Usamos a classe Usuario para listar os candidatos
+require_once 'Vaga.php';
 
 $empresa = new Empresa();
 $dadosEmpresa = $empresa->buscarPorId($_SESSION['empresa_id']); // Busca a empresa pelo ID
+
+$vagaObj = new Vaga();
+$vagas = $vagaObj->listarPorEmpresa($_SESSION['empresa_id']);
+
 
 if (!$dadosEmpresa) {
     $_SESSION['mensagem'] = "Empresa não encontrada.";
@@ -68,35 +73,42 @@ $candidatos = $usuario->listarTodos(); // Método para listar todos os usuários
                 </div>
             </div>
         </section>
-<!--
+
         <section class="lista-cadastrados">
-            <h2>Candidatos Cadastrados</h2>
-            <div class="lista">
-                <?php if (!empty($candidatos)): ?>
-                    <?php foreach ($candidatos as $candidato): ?>
-                        <div class="item">
-                            <?php
-                            $caminhoCandidato = !empty($candidato['foto_perfil']) && file_exists($candidato['foto_perfil'])
-                                ? htmlspecialchars($candidato['foto_perfil'])
-                                : 'img/foto_padrao.jpg';
+           <h2>Vagas Disponíveis</h2>
+    <div class="tabela-container">
+        <div class="anime-bloco">
+            <?php if (!empty($vagas)): ?>
+                <?php foreach ($vagas as $vaga): ?>
+                    <div class="anime-card">
+                          <?php
+                            $imagemVaga = !empty($vaga['imagem_vaga']) && file_exists($vaga['imagem_vaga'])
+                                ? htmlspecialchars($vaga['imagem_vaga'])
+                                : 'img/imagem_padrao.jpg';
                             ?>
-                            <img src="<?php echo $caminhoCandidato; ?>" alt="<?php echo htmlspecialchars($candidato['nome']); ?>">
+                         <img src="<?php echo $imagemVaga; ?>" alt="Imagem da vaga">
+                          
+                         <div class="anime-info">
+                          
+                        
                             <div class="detalhes">
-                                <h3><?php echo htmlspecialchars($candidato['nome']); ?></h3>
-                                <p><strong>E-mail:</strong> <?php echo htmlspecialchars($candidato['email']); ?></p>
-                                <p><strong>Telefone:</strong> <?php echo htmlspecialchars($candidato['telefone']); ?></p>
-                            </div>
-                            <div class="acoes">
-                                <a href="ver_curriculo.php?candidato_id=<?php echo $candidato['id']; ?>" class="btn">Ver Currículo</a>
+                                <h4><strong>Empresa:</strong> <?php echo htmlspecialchars($vaga['nome_empresa']); ?></h4>                               
+                                <p><strong>Descrição:</strong> <?php echo htmlspecialchars($vaga['descricao']); ?></p>
+                                <p><strong>Requisitos:</strong> <?php echo htmlspecialchars($vaga['requisitos']); ?></p>
+                                <p><strong>Localização:</strong> <?php echo htmlspecialchars($vaga['localizacao']); ?></p>
+                                <p><strong>Tipo de Vaga:</strong> <?php echo htmlspecialchars($vaga['tipo_de_vaga']); ?></p>
+                                <a href="editar_vagas.php?id=<?= $vaga['id'] ?>" class="Editar">Editar</a>
                             </div>
                         </div>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <p>Nenhum candidato cadastrado.</p>
-                <?php endif; ?>
-            </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Nenhuma vaga disponível.</p>
+            <?php endif; ?>
+        </div>
+    </divc>
         </section>
-        -->
+        
     </main>
 
     <footer>
