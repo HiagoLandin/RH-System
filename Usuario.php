@@ -10,7 +10,7 @@ class Usuario {
         $this->conn = $database->getConnection();
     }
 
-    // Método para cadastrar um usuário
+    // Método para cadastrar um usuário legal
     public function cadastrar($nome, $email, $senha, $telefone, $descricao, $foto_perfil, $curriculo) {
         $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
         $query = "INSERT INTO $this->tabela (nome, email, senha, telefone, descricao, foto_perfil, curriculo) VALUES (?, ?, ?, ?, ?, ?, ?)";

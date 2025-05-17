@@ -1,73 +1,69 @@
 <?php
-session_start(); // Inicia a sessão
+session_start();
+require_once 'Vaga.php';
 
-// Verifica se o usuário está logado
-if (!isset($_SESSION['usuario_id'])) {
-    $_SESSION['mensagem'] = "Você precisa fazer login para acessar esta página.";
-    header("Location: login.php");
-    exit;
+if (!isset($_GET['id'])) {
+    die("ID da vaga não foi especificado.");
 }
 
-require_once 'Empresa.php';
+$vaga_id = $_GET['id'];
+$vagaObj = new Vaga();
+$vaga = $vagaObj->buscarPorId($vaga_id);
 
-if (!isset($_GET['empresa_id'])) {
-    die("ID da empresa não fornecido.");
+if (!$vaga) {
+    die("Vaga não encontrada.");
 }
-
-$empresa_id = $_GET['empresa_id'];
-$empresa = new Empresa();
-
-// Busca as vagas da empresa
-$vagas = $empresa->buscarVagasPorEmpresa($empresa_id);
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vagas da Empresa - LINKIDEAU</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Detalhes da Vaga - LINKIDEAU</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <span>LINKIDEAU</span>
-            <a href="https://www.passofundo.ideau.com.br/" target="_blank">
-                <img src="https://www.getulio.ideau.com.br/wp-content/uploads/2019/05/logo_ideau.png" alt="Logo LINKIDEAU">
-            </a>
+
+<header>
+    <div class="logo">
+        <span>LINKIDEAU</span>
+        <a href="https://www.passofundo.ideau.com.br/" target="_blank">
+            <img src="https://www.getulio.ideau.com.br/wp-content/uploads/2019/05/logo_ideau.png" alt="Logo Ideau">
+        </a>
+    </div>
+    <nav>
+        <a href="index.php" class="btn">Início</a>
+        <a href="sobre.php" class="btn">Sobre Nós</a>
+        <a href="login.php" class="btn">Login</a>
+    </nav>
+</header>
+
+<main>
+    <section class="vaga-detalhes">
+        <h1>Detalhes da Vaga</h1>
+
+        <?php if (!empty($vaga['imagem_vaga']) && file_exists($vaga['imagem_vaga'])): ?>
+            <img src="<?php echo htmlspecialchars($vaga['imagem_vaga']); ?>" alt="Imagem da Vaga" class="imagem-vaga">
+        <?php endif; ?>
+
+        <div class="vaga-info">
+            <p><strong>Empresa:</strong> <?php echo htmlspecialchars($vaga['nome_empresa']); ?></p>
+            <p><strong>Descrição:</strong> <?php echo nl2br(htmlspecialchars($vaga['descricao'])); ?></p>
+            <p><strong>Requisitos:</strong> <?php echo nl2br(htmlspecialchars($vaga['requisitos'])); ?></p>
+            <p><strong>Área:</strong> <?php echo htmlspecialchars($vaga['area']); ?></p>
+            <p><strong>Cursos:</strong> <?php echo htmlspecialchars($vaga['cursos']); ?></p>
+            <p><strong>Semestre:</strong> <?php echo htmlspecialchars($vaga['semestre']); ?></p>
+            <p><strong>Tipo de Vaga:</strong> <?php echo htmlspecialchars($vaga['tipo_de_vaga']); ?></p>
+            <p><strong>Localização:</strong> <?php echo htmlspecialchars($vaga['localizacao']); ?></p>
         </div>
-        <nav>
-            <a href="login_empresa.php" class="btn">Empresa</a>
-            <a href="login.php" class="btn">Candidato</a> <!-- Botão de login -->
-            <a href="sobre.php" class="btn">Sobre Nós</a>
-        </nav>
-    </header>
 
-    <main>
-        <section class="vagas-empresa">
-            <h1>Vagas da Empresa</h1>
+        <a href="candidatar.php?vaga_id=<?php echo $vaga['id']; ?>" class="btn">Candidatar-se</a>
+    </section>
+</main>
 
-            <div class="lista-vagas">
-                <?php if (!empty($vagas)): ?>
-                    <?php foreach ($vagas as $vaga): ?>
-                        <div class="vaga">
-                            <h3><?php echo htmlspecialchars($vaga['titulo']); ?></h3>
-                            <p><strong>Descrição:</strong> <?php echo htmlspecialchars($vaga['descricao']); ?></p>
-                            <p><strong>Localização:</strong> <?php echo htmlspecialchars($vaga['localizacao']); ?></p>
-                            <a href="candidatar.php?vaga_id=<?php echo $vaga['id']; ?>" class="btn">Candidatar-se</a>
-                        </div>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <p>Nenhuma vaga disponível.</p>
-                <?php endif; ?>
-            </div>
-        </section>
-    </main>
+<footer>
+    <p>&copy; 2025 LINKIDEAU. Todos os direitos reservados.</p>
+</footer>
 
-    <footer>
-        <p>&copy; 2025 LINKIDEAU. Todos os direitos reservados.</p>
-    </footer>
 </body>
 </html>

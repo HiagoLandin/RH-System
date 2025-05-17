@@ -42,7 +42,9 @@ $candidatos = $usuario->listarTodos(); // Método para listar todos os usuários
             </a>
         </div>
         <nav>
+            <a href="add_vaga.php" class="btn-sair">Adicionar Vaga</a>
             <a href="logout.php" class="btn-sair">Sair</a>
+
         </nav>
     </header>
 
@@ -66,7 +68,7 @@ $candidatos = $usuario->listarTodos(); // Método para listar todos os usuários
                 </div>
             </div>
         </section>
-
+<!--
         <section class="lista-cadastrados">
             <h2>Candidatos Cadastrados</h2>
             <div class="lista">
@@ -94,6 +96,7 @@ $candidatos = $usuario->listarTodos(); // Método para listar todos os usuários
                 <?php endif; ?>
             </div>
         </section>
+        -->
     </main>
 
     <footer>

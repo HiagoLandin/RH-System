@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Login bem-sucedido
             $_SESSION['usuario_id'] = $dadosUsuario['id']; // Armazena o ID do usuário na sessão
             $_SESSION['mensagem'] = "Login realizado com sucesso!";
-            header("Location: perfil_usuario.php"); // Redireciona para o perfil do usuário
+            header("Location: feed.php"); // Redireciona para o perfil do usuário
             exit;
         } else {
             // Credenciais inválidas
