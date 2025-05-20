@@ -31,7 +31,7 @@ if (isset($_GET['pesquisa']) && !empty($_GET['pesquisa'])) {
         'area' => $_GET['area'] ?? ''
     ];
 
-    $vagas = $vagaObj->filtrarVagas($filtros); // você vai criar esse método
+    $vagas = $vagaObj->filtrarVagas($filtros);
 
 $termo = $_GET['pesquisa'] ?? '';
 
@@ -47,7 +47,7 @@ if (!empty($termo)) {
 
 
 $usuario = new Usuario();
-$dadosUsuario = $usuario->buscarPorId($usuario_id); // <<< ESSA LINHA ESTÁ FALTANDO
+$dadosUsuario = $usuario->buscarPorId($usuario_id); 
 
 ?>
 
