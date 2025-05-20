@@ -12,7 +12,7 @@ unset($_SESSION['mensagem']); // Remove a mensagem após exibir
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Candidato - LINKIDEAU</title>
+    <title>Cadastro de Candidato 23 - LINKIDEAU</title>
     <!-- Link para o Google Fonts pra deixar a logo bonitinha (Bebas Neue) -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <!-- Link para o CSS -->
