@@ -1,68 +1,86 @@
 <?php
+session_start();
 require_once 'Usuario.php';
-session_start(); // Inicia a sessão para armazenar mensagens
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Verifica se todos os campos obrigatórios foram preenchidos
-    if (empty($_POST['nome_completo']) || empty($_POST['cpf']) || empty($_POST['data_nascimento']) || empty($_POST['telefone']) || empty($_POST['email']) || empty($_POST['senha'])) {
-        $_SESSION['mensagem'] = "Todos os campos são obrigatórios.";
+    $nome = $_POST['nome_completo'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $telefone = $_POST['telefone'];
+    $descricao = $_POST['descricao'];
+    $cpf = $_POST['cpf'];
+    $data_nascimento = $_POST['data_nascimento'];
+
+    $data = DateTime::createFromFormat('d/m/Y', $data_nascimento);
+    if ($data) {
+        $data_nascimento_formatada = $data->format('Y-m-d');
     } else {
-        // Sanitiza os dados do formulário
-        $nome_completo = htmlspecialchars(trim($_POST['nome_completo']));
-        $cpf = htmlspecialchars(trim($_POST['cpf']));
-        $data_nascimento = trim($_POST['data_nascimento']);
-        $telefone = htmlspecialchars(trim($_POST['telefone']));
-        $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-        $senha = trim($_POST['senha']);
-
-        // Validar a data de nascimento
-        if (!DateTime::createFromFormat('d/m/Y', $data_nascimento)) {
-            $_SESSION['mensagem'] = "Data de nascimento inválida! Use o formato DD/MM/AAAA.";
-        } else {
-            // Converter a data para o formato do banco de dados
-            $data_nascimento_db = DateTime::createFromFormat('d/m/Y', $data_nascimento)->format('Y-m-d');
-
-            // Upload da foto de perfil
-            $foto_perfil = '';
-            if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] == 0) {
-                // Verifica se a pasta "uploads" existe, se não, cria
-                if (!is_dir('uploads/usuarios')) {
-                    mkdir('uploads/usuarios', 0777, true);
-                }
-
-                // Verifica a extensão do arquivo
-                $extensao = strtolower(pathinfo($_FILES['foto_perfil']['name'], PATHINFO_EXTENSION));
-                $extensoes_validas = ['jpg', 'jpeg', 'png', 'gif'];
-
-                if (!in_array($extensao, $extensoes_validas)) {
-                    $_SESSION['mensagem'] = "Formato de imagem inválido. Use apenas JPG, JPEG, PNG ou GIF.";
-                } elseif ($_FILES['foto_perfil']['size'] > 2 * 1024 * 1024) { // 2MB
-                    $_SESSION['mensagem'] = "O arquivo é muito grande. Máximo: 2MB.";
-                } else {
-                    // Gera um nome único para o arquivo
-                    $nomeArquivo = uniqid() . '_' . basename($_FILES['foto_perfil']['name']);
-                    $foto_perfil = 'uploads/usuarios/' . $nomeArquivo;
-
-                    // Move o arquivo para o diretório de uploads
-                    if (!move_uploaded_file($_FILES['foto_perfil']['tmp_name'], $foto_perfil)) {
-                        $_SESSION['mensagem'] = "Erro ao fazer upload da foto de perfil.";
-                    }
-                }
-            }
-
-            // Se não houver erros, cadastra o usuário
-            if (!isset($_SESSION['mensagem'])) {
-                $usuario = new Usuario();
-                if ($usuario->cadastrar($nome_completo, $email, $senha, $telefone, $data_nascimento_db, $foto_perfil, $cpf)) {
-                    $_SESSION['mensagem'] = "Cadastro realizado com sucesso!";
-                } else {
-                    $_SESSION['mensagem'] = "Erro ao cadastrar o usuário. Tente novamente.";
-                }
-            }
+        $_SESSION['mensagem'] = "Data de nascimento inválida.";
+        header("Location: cadastro_usuario.php");
+        exit();
+    }
+    // Upload da foto de perfil
+    if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] == 0) {
+        $foto = $_FILES['foto_perfil'];
+        $diretorio_foto = 'fotos/';
+        if (!is_dir($diretorio_foto)) {
+            mkdir($diretorio_foto, 0755, true);
         }
+        $nome_foto = uniqid() . '_' . basename($foto['name']);
+        $caminho_foto = $diretorio_foto . $nome_foto;
+
+        if (!move_uploaded_file($foto['tmp_name'], $caminho_foto)) {
+            $_SESSION['mensagem'] = "Erro ao fazer upload da foto.";
+            header("Location: cadastro_usuario.php");
+            exit;
+        }
+    } else {
+        $_SESSION['mensagem'] = "Erro no upload da foto: " . $_FILES['foto_perfil']['error'];
+        header("Location: cadastro_usuario.php");
+        exit;
     }
 
-    // Redireciona de volta para a página de cadastro
+    // Upload do currículo (PDF)
+    if (isset($_FILES['curriculo']) && $_FILES['curriculo']['error'] == 0) {
+        $curriculo = $_FILES['curriculo'];
+        $fileType = mime_content_type($curriculo['tmp_name']);
+        if ($fileType != 'application/pdf') {
+            $_SESSION['mensagem'] = "Erro: O arquivo do currículo deve ser um PDF.";
+            header("Location: cadastro_usuario.php");
+            exit;
+        }
+
+        $diretorio_curriculo = 'curriculos/';
+        if (!is_dir($diretorio_curriculo)) {
+            mkdir($diretorio_curriculo, 0755, true);
+        }
+
+        $nome_curriculo = uniqid() . '_' . basename($curriculo['name']);
+        $caminho_curriculo = $diretorio_curriculo . $nome_curriculo;
+
+        if (!move_uploaded_file($curriculo['tmp_name'], $caminho_curriculo)) {
+            $_SESSION['mensagem'] = "Erro ao fazer upload do currículo.";
+            header("Location: cadastro_usuario.php");
+            exit;
+        }
+    } else {
+        $_SESSION['mensagem'] = "Erro no upload do currículo: " . $_FILES['curriculo']['error'];
+        header("Location: cadastro_usuario.php");
+        exit;
+    }
+
+    $usuario = new Usuario();
+
+    if ($usuario->cadastrar($nome, $email, $senha, $telefone, $descricao, $caminho_foto, $caminho_curriculo, $cpf, $data_nascimento_formatada)) {
+        $_SESSION['mensagem'] = "Cadastro realizado com sucesso!";
+    } else {
+        $_SESSION['mensagem'] = "Erro ao cadastrar o usuário.";
+    }
+
+    header("Location: perfil_usuario.php");
+    exit;
+} else {
+    $_SESSION['mensagem'] = "Requisição inválida.";
     header("Location: cadastro_usuario.php");
     exit;
 }

@@ -6,6 +6,7 @@ if (!isset($_SESSION['usuario_id'])) {
     exit;
 }
 
+require_once 'database.php';
 require_once 'Usuario.php';
 require_once 'Empresa.php';
 
@@ -33,11 +34,12 @@ $empresas = $empresa->listarEmpresas();
 </head>
 <body>
     <header>
-        <div class="logo">
-            <span>LINKIDEAU</span>
-            <a href="https://www.passofundo.ideau.com.br/" target="_blank">
-                <img src="https://www.getulio.ideau.com.br/wp-content/uploads/2019/05/logo_ideau.png" alt="Logo LINKIDEAU">
-            </a>
+           <div class="logo">
+            <nav>
+                <a href="feed.php" class="btn-sair">Voltar</a>
+            </nav>
+                </div>
+           
         </div>
         <nav>
             <a href="logout.php" class="btn-sair">Sair</a>
@@ -58,9 +60,43 @@ $empresas = $empresa->listarEmpresas();
                 </div>
                 <div class="informacoes-perfil">
                     <p><strong>Nome:</strong> <?php echo htmlspecialchars($dadosUsuario['nome']); ?></p>
-                    <p><strong>E-mail:</strong> <?php echo htmlspecialchars($dadosUsuario['email']); ?></p>
-                    <p><strong>Telefone:</strong> <?php echo htmlspecialchars($dadosUsuario['telefone']); ?></p>
+                    <p><strong></strong> <?php echo htmlspecialchars($dadosUsuario['data_nascimento']); ?></p>
+                   
                 </div>
+                <div> 
+                    <nav>
+                        <a href="editar_perfil.php" class="btn-sair">✏️</a>
+                     </nav>
+                </div>
+            </div>
+        </section>
+
+        <section class="perfil">
+            <div class="dados-perfil">
+             <div class="informacoes-perfil">
+                <h1>Visão Geral</h1>
+                    <p><strong>Sobre:<br></strong> <?php echo htmlspecialchars($dadosUsuario['descricao']); ?></p>
+                     <h1>Informações</h1>
+                    <h2>contatos</h1>
+                    <p><strong></strong> <?php echo htmlspecialchars($dadosUsuario['email']); ?></p>
+                    <p><strong>Telefone:</strong> <?php echo htmlspecialchars($dadosUsuario['telefone']); ?></p>
+                    
+                     <h1>Anexos</h1>
+                     <?php
+                        if (!empty($dadosUsuario['curriculo'])) {
+                            // Extrai só o nome do arquivo (tudo depois da última /)
+                            $nomeArquivo = basename($dadosUsuario['curriculo']);
+                            // Monta o caminho para link, pasta + arquivo codificado
+                            $caminho = "curriculos/" . rawurlencode($nomeArquivo);
+
+                            echo "<p>Currículo: " . htmlspecialchars($nomeArquivo) . "</p>";
+                            echo "<a href='$caminho' target='_blank'>Abrir currículo</a>";
+                        } else {
+                            echo "<p>Nenhum currículo disponível.</p>";
+                        }
+                        ?>
+
+                     </div>
             </div>
         </section>
 

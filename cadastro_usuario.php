@@ -59,8 +59,16 @@ unset($_SESSION['mensagem']); // Remove a mensagem após exibir
                     <input type="text" id="data_nascimento" name="data_nascimento" placeholder="DD/MM/AAAA" required>
                 </div>
                 <div class="form-group">
+                    <label for="descricao">descrição:</label>
+                    <input type="text" id="descricao" name="descricao" required>
+                </div>
+                <div class="form-group">
                     <label for="telefone">Telefone:</label>
                     <input type="tel" id="telefone" name="telefone" required>
+                </div>
+                <div class="form-group">
+                     <label for="curriculo">Anexar curriculo (PDF):</label>
+                    <input type="file" name="curriculo" accept="application/pdf" required><br><br>
                 </div>
                 <div class="form-group">
                     <label for="email">E-mail:</label>
