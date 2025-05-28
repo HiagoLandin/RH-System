@@ -161,7 +161,7 @@ $dadosUsuario = $usuario->buscarPorId($usuario_id);
                 <p>Nenhuma vaga disponível.</p>
             <?php endif; ?>
         </div>
-    </divc>
+    </div>
 </section>
 
        

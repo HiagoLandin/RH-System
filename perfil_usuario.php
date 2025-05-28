@@ -40,6 +40,7 @@ $empresas = $empresa->listarEmpresas();
             </a>
         </div>
         <nav>
+            <button class="btn-sair" onclick="history.back()">← Voltar</button>
             <a href="logout.php" class="btn-sair">Sair</a>
         </nav>
     </header>
