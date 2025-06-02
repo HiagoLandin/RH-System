@@ -39,7 +39,7 @@ $candidatos = $usuario->listarTodos(); // Método para listar todos os usuários
     <link rel="stylesheet" href="perfil.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="pagina-empresa">
     <header>
         <div class="logo">
             <span>LINKIDEAU</span>
@@ -90,8 +90,6 @@ $candidatos = $usuario->listarTodos(); // Método para listar todos os usuários
                          <img src="<?php echo $imagemVaga; ?>" alt="Imagem da vaga">
                           
                          <div class="anime-info">
-                          
-                        
                             <div class="detalhes">
                                 <h4><strong>Empresa:</strong> <?php echo htmlspecialchars($vaga['nome_empresa']); ?></h4>                               
                                 <p><strong>Descrição:</strong> <?php echo htmlspecialchars($vaga['descricao']); ?></p>
@@ -107,7 +105,7 @@ $candidatos = $usuario->listarTodos(); // Método para listar todos os usuários
                 <p>Nenhuma vaga disponível.</p>
             <?php endif; ?>
         </div>
-    </divc>
+    </div>
         </section>
         
     </main>

@@ -65,7 +65,12 @@ header nav .btn-sair:hover {
     text-decoration-color: #fff;
 }
 
-
+header > div:not(.logo) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
 
 
 /* Estilos do Main */
@@ -131,25 +136,25 @@ main {
 }
 
 /* Estilos da página de Listagem (Candidatos ou Empresas) */
-.lista-cadastrados {
-    text-align: center;
-    padding: 1.5rem;
-}
+ .lista-cadastrados {
+        text-align: center;
+        padding: 1.5rem;
+    }
 
-.lista-cadastrados h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #fff;
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 1px;
-}
+    .lista-cadastrados h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: #fff;
+        font-family: 'Bebas Neue', sans-serif;
+        letter-spacing: 1px;
+    }
 
-.lista-cadastrados .lista {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-}
+    .lista-cadastrados .lista {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
 
 .lista-cadastrados .item {
     width: calc(20% - 1rem); /* 5 itens por linha */
@@ -270,28 +275,26 @@ footer p {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 20px 60px;
-    justify-content: flex-start;
-    width: 100%;
-    box-sizing: border-box;
+    justify-content: center;
+    padding: 20px 40px;
 }
 
 .anime-bloco {
-    flex: 0 0 calc(45% - 20px);
     display: flex;
-    flex-direction: row;
-    box-sizing: border-box;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
 }
 
 .anime-card {
-    margin-left: 10px;
+    width: calc(20% - 20px); /* 5 cards por linha */
+    height: 350px;
     position: relative;
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid #444;
     border-radius: 15px;
-    width: 100%;
-    height: 350px;
-    box-shadow: 0 40px 60px rgba(0,0,0,0.3);
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     backdrop-filter: blur(5px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -328,7 +331,7 @@ footer p {
     right: 0;
     font-size: 15px;
     color: white;
-   background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.5) 80%, transparent 100%);
+   background: linear-gradient(to top, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.5) 80%, transparent 100%);
     padding: 10px 15px;
     opacity: 0;
     visibility: hidden;
@@ -347,7 +350,7 @@ footer p {
     font-size: 12px;
     color: #ffffff;
      -webkit-text-stroke-width: 1px; /* largura da borda */
-    -webkit-text-stroke-color: #5900ff; /* cor da borda */
+    -webkit-text-stroke-color: #3cff00; /* cor da borda */
     font-size: 16px;
     margin-bottom: 5px;
 }
@@ -361,7 +364,25 @@ footer p {
 .anime-card:hover .anime-info p,
 .anime-card:hover .anime-info .botoes {
     display: block;
+} 
+@media (max-width: 1024px) {
+    .anime-card {
+        width: calc(33.33% - 20px); /* 3 por linha */
+    }
 }
+
+@media (max-width: 768px) {
+    .anime-card {
+        width: calc(50% - 20px); /* 2 por linha */
+    }
+}
+
+@media (max-width: 480px) {
+    .anime-card {
+        width: 100%; /* 1 por linha */
+    }
+}
+
 
 /* Botões dentro da info */
 .botoes {
@@ -372,7 +393,7 @@ footer p {
     display: inline-block;
     margin: 5px 6px 0 0;
     padding: 6px 14px;
-    background-color: #040038;
+    background-color: #380000;
     color: white;
     border-radius: 20px;
     text-decoration: none;
@@ -446,7 +467,10 @@ footer p {
     position: relative;
     width: fit-content;
     margin: 10px;
-    padding-bottom: 60px; 
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 /* Formulário de filtros inicialmente oculto */
@@ -455,7 +479,7 @@ footer p {
     pointer-events: none;
     position: absolute;
     top: 55px;
-    left: 0;
+    left: -90px;
     z-index: 10;
     background-color: #1a1a1a;
     padding: 15px;
@@ -515,3 +539,32 @@ footer p {
     border-color: #0056b3;
     box-shadow: 0 0 6px #0056b3;
 }
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  header .logo {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  header nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  header nav .btn-sair {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+.pagina-empresa .detalhes > h4, /* Oculta "Empresa" */
+.pagina-empresa .detalhes > p:not(:nth-of-type(1)) /* Oculta tudo exceto o primeiro <p> (Descrição) */ {
+  display: none;
+}
+

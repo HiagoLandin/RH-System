@@ -31,6 +31,15 @@ header .logo {
     align-items: center;
 }
 
+.header-direita {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    flex: 1;
+}
+
+
 header .logo span {
     font-size: 2rem;
     font-weight: normal;
@@ -62,6 +71,7 @@ header nav a:hover {
     text-decoration: underline;
     text-decoration-color: #007bff;
 }
+
 
 /* Estilos do Main */
 main {
