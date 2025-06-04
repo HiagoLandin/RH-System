@@ -271,7 +271,7 @@ footer p {
 
 /* Bloco de cada anime */
 .anime-bloco {
-    width: 25%;
+    width: 200%;
     display: flex;
 }
 
@@ -459,3 +459,46 @@ footer p {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+
+.candidatos {
+    margin-top: 20px; /* espaço entre a imagem e os candidatos */
+    padding: 10px;
+    border-top: 2px solid #ccc; /* linha separadora opcional */
+    background-color: #f9f9f9; /* fundo levemente diferente para destacar */
+    border-radius: 8px;
+    color: #000;
+}
+
+.candidatos h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.candidatos ul {
+    list-style: none; /* remove as bolinhas */
+    padding: 0;
+    margin: 0;
+}
+
+.candidatos li {
+    margin-bottom: 8px;
+    padding: 6px 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #000;
+}
+
+.candidatos a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.candidatos a:hover {
+    text-decoration: underline;
+}
+

@@ -9,6 +9,7 @@ if (!isset($_SESSION['usuario_id'])) {
 require_once 'database.php';
 require_once 'Usuario.php';
 require_once 'Empresa.php';
+require_once 'Vaga.php';
 
 $usuario = new Usuario();
 $dadosUsuario = $usuario->buscarPorId($_SESSION['usuario_id']);
@@ -28,7 +29,7 @@ $empresas = $empresa->listarEmpresas();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do Candidato - LINKIDEAU</title>
+    <title>Perfil do Candidato - Carreira IDEAU</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="perfil.css">
 </head>
@@ -75,7 +76,7 @@ $empresas = $empresa->listarEmpresas();
             <div class="dados-perfil">
              <div class="informacoes-perfil">
                 <h1>Visão Geral</h1>
-                    <p><strong>Sobre:<br></strong> <?php echo htmlspecialchars($dadosUsuario['descricao']); ?></p>
+                    <p><strong>Sobre:<br></strong> <?php echo nl2br(htmlspecialchars($dadosUsuario['descricao'])); ?></p>
                      <h1>Informações</h1>
                     <h2>contatos</h1>
                     <p><strong></strong> <?php echo htmlspecialchars($dadosUsuario['email']); ?></p>
@@ -95,38 +96,67 @@ $empresas = $empresa->listarEmpresas();
                             echo "<p>Nenhum currículo disponível.</p>";
                         }
                         ?>
+                        <p><strong>Semestre:</strong> <?php echo htmlspecialchars($dadosUsuario['semestre']); ?></p>
+                         <p><strong>Cursos:</strong> <?php echo htmlspecialchars($dadosUsuario['cursos']); ?></p>
 
                      </div>
             </div>
         </section>
+        <?php 
+        // Conexão para buscar candidatos
+$database = new Database();
+$conn = $database->getConnection();
 
-        <section class="lista-cadastrados">
-            <h2>Empresas Cadastradas</h2>
-            <div class="lista">
-                <?php if (!empty($empresas)): ?>
-                    <?php foreach ($empresas as $empresa): ?>
-                        <div class="item">
-                            <?php
-                            $caminhoEmpresa = !empty($empresa['foto_perfil']) && file_exists($empresa['foto_perfil'])
-                                ? htmlspecialchars($empresa['foto_perfil'])
-                                : 'img/imagem_padrao.jpg';
-                            ?>
-                            <img src="<?php echo $caminhoEmpresa; ?>" alt="<?php echo htmlspecialchars($empresa['nome']); ?>">
-                            <div class="detalhes">
-                                <h3><?php echo htmlspecialchars($empresa['nome']); ?></h3>
-                                <p><strong>E-mail:</strong> <?php echo htmlspecialchars($empresa['email']); ?></p>
-                                <p><strong>Telefone:</strong> <?php echo htmlspecialchars($empresa['telefone']); ?></p>
-                            </div>
-                            <div class="acoes">
-                                <a href="ver_vagas.php?empresa_id=<?php echo $empresa['id']; ?>" class="btn">Ver Vagas</a>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <p>Nenhuma empresa cadastrada.</p>
-                <?php endif; ?>
-            </div>
-        </section>
+        $usuario_id = $_SESSION['usuario_id'];
+                $sql = "
+            SELECT v.* , e.nome AS nome_empresa
+            FROM vagas v
+            INNER JOIN candidaturas i ON v.id = i.vaga_id
+           INNER JOIN empresas e ON v.empresa_id = e.id
+            WHERE i.usuario_id = ?
+        ";
+
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "i", $usuario_id);
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+        $vagasInscritas = [];
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $vagasInscritas[] = $row;
+        }
+
+        mysqli_stmt_close($stmt);
+        ?>
+<section class="lista-cadastrados">
+    <h2>Vagas que você se cadastrou</h2>
+    <div class="lista">
+        <?php if (!empty($vagasInscritas)): ?>
+            <?php foreach ($vagasInscritas as $vaga): ?>
+                <div class="item">
+                    <?php
+                    $imagemVaga = !empty($vaga['imagem_vaga']) && file_exists($vaga['imagem_vaga'])
+                        ? htmlspecialchars($vaga['imagem_vaga'])
+                        : 'img/imagem_padrao.jpg';
+                    ?>
+                    <img src="<?php echo $imagemVaga; ?>" alt="Imagem da vaga">
+                    <div class="detalhes">
+                       
+                            <h4><strong>Empresa:</strong> <?php echo htmlspecialchars($vaga['nome_empresa']); ?></h4>                               
+                                <p><strong>Area:</strong> <?php echo htmlspecialchars($vaga['area']); ?></p>
+                                <p><strong>Curso:</strong> <?php echo htmlspecialchars($vaga['cursos']); ?></p>
+                                <p><strong>Semestre:</strong> <?php echo htmlspecialchars($vaga['semestre']); ?></p>
+                                <p><strong>Tipo de Vaga:</strong> <?php echo htmlspecialchars($vaga['tipo_de_vaga']); ?></p>
+                                <a href="ver_vagas.php?id=<?= $vaga['id'] ?>" class="detalhes">Detalhes</a></div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Você ainda não se cadastrou em nenhuma vaga.</p>
+        <?php endif; ?>
+    </div>
+</section>
+
     </main>
 
     <footer>

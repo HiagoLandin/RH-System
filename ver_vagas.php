@@ -58,6 +58,8 @@ if (!$vaga) {
         </div>
 
         <a href="candidatar.php?vaga_id=<?php echo $vaga['id']; ?>" class="btn">Candidatar-se</a>
+
+
     </section>
 </main>
 

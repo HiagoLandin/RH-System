@@ -67,7 +67,7 @@ $usuario = $result->fetch_assoc();
 
                 <div class="form-group">
                     <label for="descricao">Descrição:</label>
-                    <input type="text" name="descricao" value="<?php echo htmlspecialchars($usuario['descricao']); ?>" required>
+                    <textarea name="descricao" rows="5" cols="30" required><?php echo htmlspecialchars($usuario['descricao']); ?></textarea>
                 </div>
 
                 <div class="form-group">
@@ -90,6 +90,49 @@ $usuario = $result->fetch_assoc();
                     <input type="password" name="senha">
                     <small>Deixe em branco se não quiser mudar a senha.</small>
                 </div>
+
+                <select name="semestre" id="semestre" required>
+                <option value="">Selecione o semestre</option>
+                <?php
+                $semestres = [
+                    "1° semestre", "2° semestre", "3° semestre", "4° semestre",
+                    "5° semestre", "6° semestre", "7° semestre", "8° semestre",
+                    "9° semestre", "10° semestre", "11° semestre", "12° semestre"
+                ];
+                foreach ($semestres as $semestre) {
+                    $selected = ($dadosUsuario['semestre'] === $semestre) ? 'selected' : '';
+                    echo "<option value=\"$semestre\" $selected>$semestre</option>";
+                }
+                ?>
+            </select>
+
+            <div class="form-group">
+                <label for="cursos">Cursos:</label>
+                <select name="cursos[]" id="cursos" multiple size="8" required>
+                    <?php
+                    $todosCursos = [
+                        "Administração", "Agronomia", "Análise e Desenvolvimento de Sistemas", "Arquitetura e Urbanismo",
+                        "Artes", "Biblioteconomia", "Biomedicina", "Ciências Biológicas", "Ciências Contábeis",
+                        "Ciências Sociais", "Comunicação Social – Jornalismo", "Comunicação Social – Publicidade e Propaganda",
+                        "Comunicação Social- Relações Públicas", "Direito", "Educação Física – Bacharelado",
+                        "Educação Física – Licenciatura", "Engenharia Civil", "Engenharia de Produção", "Engenharia Elétrica",
+                        "Engenharia Mecânica", "Estética e Cosmética", "Farmácia", "Filosofia", "Física", "Fisioterapia",
+                        "Geografia", "Gestão de Recursos Humanos", "História", "Letras", "Matemática", "Medicina Veterinária",
+                        "Nutrição", "Pedagogia", "Psicologia", "Química", "Secretariado Executivo", "Sociologia"
+                    ];
+
+                    // Explode os cursos salvos em um array
+                    $cursosSelecionados = explode(',', $dadosUsuario['cursos']);
+
+                    foreach ($todosCursos as $curso) {
+                        $selected = in_array($curso, $cursosSelecionados) ? 'selected' : '';
+                        echo "<option value=\"$curso\" $selected>$curso</option>";
+                    }
+                    ?>
+                </select>
+                <p><small>Segure Ctrl (Windows) ou Command (Mac) para selecionar múltiplos.</small></p>
+            </div>
+
 
                 <button type="submit" class="btn">Salvar Alterações</button>
             </form>

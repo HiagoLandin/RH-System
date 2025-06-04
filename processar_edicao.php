@@ -22,7 +22,13 @@ $telefone = $_POST['telefone'];
 $email = $_POST['email'];
 $senha = $_POST['senha']; // pode ser em branco
 $senha_hash = null;
+$semestre = $_POST['semestre'];
 
+if (isset($_POST['cursos'])) {
+    $cursos = $_POST['cursos']; // Aqui é array!
+    $cursosString = implode(',', $cursos); // Agora vira "Administração,Engenharia Civil,Direito"
+
+}
 if (!empty($senha)) {
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 }
@@ -42,7 +48,7 @@ if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] == UPLOAD_E
 }
 
 // Monta a query
-$query = "UPDATE usuarios SET nome=?, cpf=?, data_nascimento=?, descricao=?, telefone=?, email=?";
+$query = "UPDATE usuarios SET nome=?, cpf=?, data_nascimento=?, descricao=?, telefone=?, email=?, semestre=?, cursos=?";
 
 if ($senha_hash) $query .= ", senha=?";
 if ($foto_perfil) $query .= ", foto_perfil=?";
@@ -52,8 +58,8 @@ $query .= " WHERE id=?";
 
 $stmt = $conn->prepare($query);
 
-$types = "ssssss";
-$params = [$nome, $cpf, $data_nascimento, $descricao, $telefone, $email];
+$types = "ssssssss";
+$params = [$nome, $cpf, $data_nascimento, $descricao, $telefone, $email, $semestre, $cursosString];
 
 if ($senha_hash) {
     $types .= "s";
