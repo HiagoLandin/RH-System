@@ -540,6 +540,8 @@ footer p {
     box-shadow: 0 0 6px #0056b3;
 }
 
+/* Header para responsidade*/
+
 @media (max-width: 768px) {
   header {
     flex-direction: column;
@@ -561,10 +563,32 @@ footer p {
     width: 100%;
     max-width: 250px;
   }
+
+    .form-pesquisa {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .campo-pesquisa {
+    width: 90%;
+    max-width: 300px;
+    margin: 5px 0;
+  }
+  .botao-pesquisa {
+    width: 30%;
+    max-width: 300px;
+    margin: 5px 0;
+  }
 }
 
-.pagina-empresa .detalhes > h4, /* Oculta "Empresa" */
-.pagina-empresa .detalhes > p:not(:nth-of-type(1)) /* Oculta tudo exceto o primeiro <p> (Descrição) */ {
+/* Oculta informações de vagas da página de perfil da empresa*/
+/* Utilizada para deixar a página mais "limpa", deixando apenas a vaga em si na página*/
+
+.pagina-empresa .detalhes > h4, 
+.pagina-empresa .detalhes > p:not(:nth-of-type(1)) / {
   display: none;
 }
 
