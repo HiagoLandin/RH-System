@@ -61,74 +61,62 @@ $dadosUsuario = $usuario->buscarPorId($usuario_id);
     <link rel="stylesheet" href="perfil.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="perfil_usuario.php">
-                  <?php
-                    $caminhoImagem = !empty($dadosUsuario['foto_perfil']) && file_exists($dadosUsuario['foto_perfil'])
-                        ? htmlspecialchars($dadosUsuario['foto_perfil'])
-                        : 'img/foto_padrao.jpg';
-                    ?>
-                    <img src="<?php echo $caminhoImagem; ?>" alt="Foto de Perfil" class="foto-perfil-img">
-            </a>
-                </div>
-           
-        </div>
-        <nav>
-             <form action="feed.php" method="GET" class="form-pesquisa">
+<header>
+  <div class="logo">
+    <a href="perfil_usuario.php">
+      <?php
+        $caminhoImagem = !empty($dadosUsuario['foto_perfil']) && file_exists($dadosUsuario['foto_perfil'])
+            ? htmlspecialchars($dadosUsuario['foto_perfil'])
+            : 'img/foto_padrao.jpg';
+      ?>
+      <img src="<?php echo $caminhoImagem; ?>" alt="Foto de Perfil" class="foto-perfil-img">
+    </a>
+  </div>
+
+  <div>
+      <form action="feed.php" method="GET" class="form-pesquisa">
         <input type="text" name="pesquisa" placeholder="Buscar empresa..." class="campo-pesquisa">
-        <button type="submit" class="botao-pesquisa">
-            🔍
-        </button>
-    </form>
-   
-
-        </nav>
-     <style>
-    /* CSS abaixo 👇 */
-</style>
-
-<div class="filtros-container">
-    <button class="toggle-filtros">🔍 Filtros</button>
-    <form action="feed.php" method="GET" class="filtro1">
+        <button type="submit" class="botao-pesquisa">🔍</button>
+      </form>
+    <div class="filtros-container">
+      <button class="toggle-filtros">🔍 Filtros</button>
+      <form action="feed.php" method="GET" class="filtro1">
         <select name="tipo_de_vaga" class="filtro2">
-            <option value="">Tipo de Vaga</option>
-            <option value="CLT">CLT</option>
-            <option value="Estágio">Estágio</option>
-            <option value="PJ">PJ</option>
-            <option value="Jovem aprendiz">Jovem aprendiz</option>
+          <option value="">Tipo de Vaga</option>
+          <option value="CLT">CLT</option>
+          <option value="Estágio">Estágio</option>
+          <option value="PJ">PJ</option>
+          <option value="Jovem aprendiz">Jovem aprendiz</option>
         </select>
 
         <select name="semestre" class="filtro2">
-            <option value="">Semestre</option>
-            <?php for ($i = 1; $i <= 12; $i++): ?>
-                <option value="<?= $i ?>° semestre"><?= $i ?>° semestre</option>
-            <?php endfor; ?>
+          <option value="">Semestre</option>
+          <?php for ($i = 1; $i <= 12; $i++): ?>
+            <option value="<?= $i ?>° semestre"><?= $i ?>° semestre</option>
+          <?php endfor; ?>
         </select>
 
         <select name="area" class="filtro2">
-            <option value="">Área</option>
-            <option value="Tecnologia">Tecnologia</option>
-            <option value="Engenharias">Engenharias</option>
-            <option value="Ciencias sociais e Humanas">Ciências Sociais e Humanas</option>
-            <option value="Saúde">Saúde</option>
-            <option value="Artes">Artes</option>
-            <option value="Educação">Educação</option>
+          <option value="">Área</option>
+          <option value="Tecnologia">Tecnologia</option>
+          <option value="Engenharias">Engenharias</option>
+          <option value="Ciencias sociais e Humanas">Ciências Sociais e Humanas</option>
+          <option value="Saúde">Saúde</option>
+          <option value="Artes">Artes</option>
+          <option value="Educação">Educação</option>
         </select>
 
         <input type="text" name="curso" placeholder="Filtrar por curso" class="filtro2">
-
         <button type="submit" class="botao-pesquisa">Aplicar</button>
-    </form>
-</div>
+      </form>
+    </div>
 
-        <nav>
-            <a href="logout.php" class="btn-sair">Sair</a>
-        </nav>
-    </header>
-
-    <main>
-       
+    <nav>
+      <a href="logout.php" class="btn-sair">Sair</a>
+    </nav>
+  </div>
+</header>
+<main>  
         <section class="lista-cadastrados">
     <h2>Vagas Disponíveis</h2>
     <div class="tabela-container">
@@ -161,11 +149,8 @@ $dadosUsuario = $usuario->buscarPorId($usuario_id);
                 <p>Nenhuma vaga disponível.</p>
             <?php endif; ?>
         </div>
-    </divc>
+    </div>
 </section>
-
-       
-
         
     </main>
 

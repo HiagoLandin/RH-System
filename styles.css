@@ -31,6 +31,15 @@ header .logo {
     align-items: center;
 }
 
+.header-direita {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    flex: 1;
+}
+
+
 header .logo span {
     font-size: 2rem;
     font-weight: normal;
@@ -62,6 +71,7 @@ header nav a:hover {
     text-decoration: underline;
     text-decoration-color: #007bff;
 }
+
 
 /* Estilos do Main */
 main {
@@ -139,32 +149,6 @@ footer p {
     max-width: 500px;
     margin: 0 auto;
     text-align: left;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #fff;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 0.8rem;
-    font-size: 1rem;
-    border: 2px solid #007bff;
-    border-radius: 5px;
-    background-color: #1a1a1a;
-    color: #fff;
-}
-
-.form-group input:focus {
-    border-color: #0056b3;
-    outline: none;
 }
 
 .cadastro button {
@@ -494,5 +478,204 @@ footer p {
 
 .acoes .btn:hover {
     background-color: #0056b3;
+}
+
+#cursos {
+    width: 72%;
+    padding: 0.8rem;
+    font-size: 1.1rem; /* aumento leve da fonte */
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: #fff;
+    height: auto;
+}
+
+/* Estiliza cada option dentro do select */
+#cursos option {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.80rem;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-bottom: 1px solid #333;
+}
+
+/* Quando a opção estiver selecionada */
+#cursos option:checked {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+
+.form-group label {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.form-group input:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+.form-group textarea {
+    width: 72%;
+    padding: 0.8rem;
+    font-size: 1.1rem; /* texto mais legível */
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: #fff;
+    resize: vertical; /* permite redimensionar verticalmente, se necessário */
+    min-height: 150px; /* altura mínima razoável para facilitar a digitação */
+}
+
+/* Foco no textarea */
+.form-group textarea:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+.form-group select {
+    width: 72%;
+    padding: 0.8rem;
+    font-size: 0.8rem;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: #fff;
+    margin-top: 0.5rem;
+}
+
+.form-group select:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+#localizacao {
+    width: 72%;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    text-shadow: 1.5px 1.5px 3px rgba(0, 123, 255, 0.3), 0 0 5px rgba(0, 123, 255, 0.2);
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
+#form-imagem {
+  width: 76%;              
+  display: flex;
+  flex-direction: column;  
+  justify-content: center; 
+  align-items: center;     
+  text-align: center;      
+  gap: 8px;                
+  padding: 10px;           
+  margin: 0 auto;          
+}
+
+.btn-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+/* ===== RESPONSIVIDADE PARA TELAS MENORES ===== */
+@media (max-width: 768px) {
+  #form-imagem {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select,
+  #cursos,
+  #localizacao {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .form-group textarea {
+    min-height: 120px;
+  }
+
+  #cursos option {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+  }
+
+  .btn-container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  input[type="file"] {
+    width: 133% !important;   /* força o input file a ocupar toda a largura do container */
+    height: auto;             /* altura automática para ajustar ao conteúdo */
+    display: flex;            /* transforma o input em flex container */
+    flex-direction: column;   /* botão em cima, texto embaixo */
+  }
+  input[type="file"]::file-selector-button {
+    width: 100% !important;  /* botão ocupa toda largura */
+    margin-bottom: 0.4rem;   /* espaçamento entre botão e texto */
+    display: block;          /* botão em linha separada */
+  }
+}
+
+.voltar-container {
+    background-color: #000000;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+#btn-voltar {
+    background-color: #000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    border-color: #007bff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#btn-voltar:hover {
+    border: 2px solid #007bff;
+    background-color: #007bff;
+    text-decoration: underline;
+    text-decoration-color: #fff;
 }
 

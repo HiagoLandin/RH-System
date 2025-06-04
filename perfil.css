@@ -44,22 +44,34 @@ header .logo img {
     height: 100px;
 }
 
-header nav a {
+header nav .btn-sair {
+    background-color: #000;
     color: #fff;
-    text-decoration: none;
-    font-size: 2rem;
+    margin-right: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    background-color: #007bff;
-    padding: 0.4rem 0.8rem;
     border-radius: 5px;
-    border: 2px solid transparent;
+    border: 2px solid #007bff;
+    cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
-header nav a:hover {
-    background-color: #0056b3;
-    border: 2px solid #fff;
+header nav .btn-sair:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    text-decoration: underline;
+    text-decoration-color: #fff;
 }
+
+header > div:not(.logo) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 
 /* Estilos do Main */
 main {
@@ -93,10 +105,10 @@ main {
     text-align: left;
     font-size: 1rem;
     margin-bottom: 1rem;
-    background-color: #333; /* Fundo escuro para as informações */
+    background-color: #333; 
     padding: 1rem;
     border-radius: 8px;
-    border: 2px solid #007bff; /* Borda azul */
+    border: 2px solid #007bff; 
 }
 
 .dados-perfil p {
@@ -124,25 +136,25 @@ main {
 }
 
 /* Estilos da página de Listagem (Candidatos ou Empresas) */
-.lista-cadastrados {
-    text-align: center;
-    padding: 1.5rem;
-}
+ .lista-cadastrados {
+        text-align: center;
+        padding: 1.5rem;
+    }
 
-.lista-cadastrados h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #fff;
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 1px;
-}
+    .lista-cadastrados h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: #fff;
+        font-family: 'Bebas Neue', sans-serif;
+        letter-spacing: 1px;
+    }
 
-.lista-cadastrados .lista {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-}
+    .lista-cadastrados .lista {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
 
 .lista-cadastrados .item {
     width: calc(20% - 1rem); /* 5 itens por linha */
@@ -259,57 +271,57 @@ footer p {
     background-color: #0056b3;
 }
 
-/* Container dos cards */
 .tabela-container {
-    height: 400px;
-    padding: 20px 60px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: flex-start;
+    justify-content: center;
+    padding: 20px 40px;
 }
 
-/* Bloco de cada anime */
 .anime-bloco {
-    width: 200%;
+    width: 25%;
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
 }
 
-/* Nome do anime */
+.anime-card {
+    width: calc(20% - 20px); /* 5 cards por linha */
+    height: 350px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #444;
+    border-radius: 15px;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.anime-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
 .anime-nome {
     text-align: center;
     font-size: 22px;
     font-weight: bold;
     color: #00c3ff;
-    margin-bottom: 10px;
-}
-
-/* Card do anime */
-.anime-card {
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid #444;
-    border-radius: 15px;
-    margin-right: 30px;
-    width: 100%;
-    height: 400px;
-    box-shadow: 0 40px 60px rgba(0,0,0,0.3);
-    overflow: hidden;
-    backdrop-filter: blur(5px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px 0;
 }
 
 .anime-card:hover {
     transform: scale(1.05) translateY(-5px);
     box-shadow: 0 15px 25px rgba(0,0,0,0.5);
-}
-
-/* Imagem do anime */
-.anime-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
 }
 
 /* Informações ocultas sobre o anime */
@@ -320,7 +332,7 @@ footer p {
     right: 0;
     font-size: 15px;
     color: white;
-   background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.5) 80%, transparent 100%);
+   background: linear-gradient(to top, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.5) 80%, transparent 100%);
     padding: 10px 15px;
     opacity: 0;
     visibility: hidden;
@@ -339,7 +351,7 @@ footer p {
     font-size: 12px;
     color: #ffffff;
      -webkit-text-stroke-width: 1px; /* largura da borda */
-    -webkit-text-stroke-color: #5900ff; /* cor da borda */
+    -webkit-text-stroke-color: #3cff00; /* cor da borda */
     font-size: 16px;
     margin-bottom: 5px;
 }
@@ -353,7 +365,25 @@ footer p {
 .anime-card:hover .anime-info p,
 .anime-card:hover .anime-info .botoes {
     display: block;
+} 
+@media (max-width: 1024px) {
+    .anime-card {
+        width: calc(33.33% - 20px); /* 3 por linha */
+    }
 }
+
+@media (max-width: 768px) {
+    .anime-card {
+        width: calc(50% - 20px); /* 2 por linha */
+    }
+}
+
+@media (max-width: 480px) {
+    .anime-card {
+        width: 100%; /* 1 por linha */
+    }
+}
+
 
 /* Botões dentro da info */
 .botoes {
@@ -364,7 +394,7 @@ footer p {
     display: inline-block;
     margin: 5px 6px 0 0;
     padding: 6px 14px;
-    background-color: #040038;
+    background-color: #380000;
     color: white;
     border-radius: 20px;
     text-decoration: none;
@@ -398,107 +428,104 @@ footer p {
 }
 
 .campo-pesquisa {
-    padding: 5px;
-    font-size: 14px;
-    border-radius: 5px 0 0 5px;
-    border: 1px solid #ccc;
+    padding: 0.8rem; 
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid #007bff;
+    background-color: #1a1a1a; 
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.campo-pesquisa:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 6px #0056b3;
 }
 
 .botao-pesquisa {
-    padding: 5px 10px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 0 5px 5px 0;
+    margin-left: 10px;
+    padding: 0.8rem 1rem;
+    background-color: #000;     
+    border: 2px solid #007bff;   
+    border-radius: 10px;
     color: white;
     cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
+.botao-pesquisa:hover {
+    background-color: #007bff;       
+    border-color: #007bff;
+    text-decoration: underline;
+    text-decoration-color: #fff;
+}
 
-
+/* Container dos filtros */
 .filtros-container {
+    top: 30px;
     position: relative;
     width: fit-content;
     margin: 10px;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
+/* Formulário de filtros inicialmente oculto */
 .filtro1 {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    background-color: #f2f2f2;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 55px;
+    left: -90px;
+    z-index: 10;
+    background-color: #1a1a1a;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    position: absolute;
-    top: 40px;
-    left: 0;
-    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    border: 2px solid #007bff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     transition: opacity 0.3s ease;
 }
 
+/* Mostrar filtros ao passar o mouse */
 .filtros-container:hover .filtro1 {
-    display: flex;
+    opacity: 1;
+    pointer-events: auto;
 }
 
+
+/* Botão para toggle dos filtros */
 .toggle-filtros {
-    background-color: #3498db;
-    color: white;
+    background-color: #000;           
+    color: #fff;
     padding: 8px 12px;
-    border: none;
+    border: 2px solid #007bff;       
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .toggle-filtros:hover {
-    background-color: #2980b9;
+    background-color: #007bff;      
+    border-color: #007bff;
+    text-decoration: underline;
+    text-decoration-color: #fff;
 }
+
+
 
 .filtro2, .botao-pesquisa {
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 2px solid #007bff; 
     border-radius: 5px;
 }
-
-
-.candidatos {
-    margin-top: 20px; /* espaço entre a imagem e os candidatos */
-    padding: 10px;
-    border-top: 2px solid #ccc; /* linha separadora opcional */
-    background-color: #f9f9f9; /* fundo levemente diferente para destacar */
-    border-radius: 8px;
-    color: #000;
-}
-
-.candidatos h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.candidatos ul {
-    list-style: none; /* remove as bolinhas */
-    padding: 0;
-    margin: 0;
-}
-
-.candidatos li {
-    margin-bottom: 8px;
-    padding: 6px 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    color: #000;
-}
-
-.candidatos a {
-    margin-left: 10px;
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-}
-
-.candidatos a:hover {
-    text-decoration: underline;
-}
-

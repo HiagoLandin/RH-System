@@ -75,13 +75,16 @@ if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
 </head>
 
 <body>
+    <div class="voltar-container">
+        <button id="btn-voltar" onclick="history.back()">← Voltar</button>
+    </div>
    <main>
     <section class="login">
         <h1>Adicionar Nova Vaga</h1>
 
         <form method="POST" enctype="multipart/form-data">
 
-            <div class="form-group">
+            <div class="form-group" id="form-imagem">
                 <label for="imagem">Imagem da Vaga:</label>
                 <input type="file" name="imagem" id="imagem" accept="image/*">
             </div>
@@ -188,8 +191,9 @@ if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
                 <label for="localizacao">Localização:</label>
                 <input type="text" name="localizacao" id="localizacao" required>
             </div>
-
-            <button type="submit" class="btn">Cadastrar Vaga</button>
+<div class="btn-container">
+  <button type="submit" class="btn">Cadastrar Vaga</button>
+</div>
         </form>
 
     </section>
