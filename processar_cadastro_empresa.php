@@ -48,6 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    header("Location: cadastro_empresa.php");
+    header("Location: login_empresa.php");
     exit;
 }

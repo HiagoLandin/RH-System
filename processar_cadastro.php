@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['mensagem'] = "Erro ao cadastrar o usuário.";
     }
 
-    header("Location: perfil_usuario.php");
+    header("Location: login.php");
     exit;
 } else {
     $_SESSION['mensagem'] = "Requisição inválida.";
