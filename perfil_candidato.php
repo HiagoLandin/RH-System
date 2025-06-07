@@ -30,19 +30,15 @@ if (!$dadosUsuario) {
     <meta charset="UTF-8">
     <title>Perfil do Candidato</title>
     <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <header>
-           <div class="logo">
+           <div class="logo"></div>
             <nav>
-                <a href="feed.php" class="btn-sair">Voltar</a>
+                <a href="minhas_vagas.php" class="btn-sair">Voltar</a>
             </nav>
-                </div>
-           
-        </div>
-        <nav>
-            <a href="logout.php" class="btn-sair">Sair</a>
-        </nav>
     </header>
 
     <main>

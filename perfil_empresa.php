@@ -38,22 +38,18 @@ $candidatos = $usuario->listarTodos(); // Método para listar todos os usuários
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="perfil.css">
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body class="pagina-empresa">
     <header>
-        <div class="logo">
+        <div class="logo"></div>
+        
+
             <nav>
+                <a href="add_vaga.php" class="btn-sair">Adicionar Vaga</a>
+                <a href="minhas_vagas.php" class="btn-sair">Candidaturas</a>
                 <a href="logout.php" class="btn-sair">Sair</a>
             </nav>
-                </div>
-        <nav>
-            <a href="add_vaga.php" class="btn-sair">Adicionar Vaga</a>
-             <a href="minhas_vagas.php" class="btn-sair">Candidaturas</a>
-        
-        </nav>
-       
-
-
 
     </header>
 

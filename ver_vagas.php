@@ -34,7 +34,7 @@ if (!$vaga) {
     <nav>
         <a href="index.php" class="btn">Início</a>
         <a href="sobre.php" class="btn">Sobre Nós</a>
-        <a href="login.php" class="btn">Login</a>
+        <button id="btn-voltar" onclick="history.back()">← Voltar</button>
     </nav>
 </header>
 
@@ -57,7 +57,7 @@ if (!$vaga) {
             <p><strong>Localização:</strong> <?php echo htmlspecialchars($vaga['localizacao']); ?></p>
         </div>
 
-        <a href="candidatar.php?vaga_id=<?php echo $vaga['id']; ?>" class="btn">Candidatar-se</a>
+        <a href="candidatar.php?vaga_id=<?php echo $vaga['id']; ?>" class="btn-candidatar">Candidatar-se</a>
 
 
     </section>

@@ -35,17 +35,21 @@ $empresas = $empresa->listarEmpresas();
 </head>
 <body>
     <header>
-           <div class="logo">
-            <nav>
-                <a href="feed.php" class="btn-sair">Voltar</a>
-            </nav>
-                </div>
-           
-        </div>
+        <div class="logo">
+            <a href="perfil_usuario.php"> 
+                <?php $caminhoImagem = !empty($dadosUsuario['foto_perfil']) && file_exists($dadosUsuario['foto_perfil'])
+                ? htmlspecialchars($dadosUsuario['foto_perfil'])
+                : 'img/foto_padrao.jpg';
+                ?>
+                <img src="<?php echo $caminhoImagem; ?>" alt="Foto de Perfil" class="foto-perfil-img">
+            </a>
+        </div> 
+
         <nav>
-            <button class="btn-sair" onclick="history.back()">← Voltar</button>
+            <a href="feed.php" class="btn-sair">Voltar</a>
             <a href="logout.php" class="btn-sair">Sair</a>
         </nav>
+
     </header>
 
     <main>
