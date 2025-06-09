@@ -19,14 +19,14 @@ if (!$vaga) {
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Detalhes da Vaga - LINKIDEAU</title>
+    <title>Detalhes da Vaga - CARREIRA IDEAU</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>
     <div class="logo">
-        <span>LINKIDEAU</span>
+        <span>CARREIRA IDEAU</span>
         <a href="https://www.passofundo.ideau.com.br/" target="_blank">
             <img src="https://www.getulio.ideau.com.br/wp-content/uploads/2019/05/logo_ideau.png" alt="Logo Ideau">
         </a>
@@ -34,7 +34,7 @@ if (!$vaga) {
     <nav>
         <a href="index.php" class="btn">Início</a>
         <a href="sobre.php" class="btn">Sobre Nós</a>
-        <button id="btn-voltar" onclick="history.back()">← Voltar</button>
+        <a href="feed.php" class="btn-sair">Voltar</a>
     </nav>
 </header>
 

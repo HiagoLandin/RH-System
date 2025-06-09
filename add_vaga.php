@@ -75,9 +75,25 @@ if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
 </head>
 
 <body>
-    <div class="voltar-container">
-        <button id="btn-voltar" onclick="history.back()">← Voltar</button>
-    </div>
+
+    <header>
+        <div class="foto-perfil">
+            <a href="perfil_empresa.php">
+                    <?php
+                    $caminhoImagem = !empty($dadosEmpresa['foto_perfil']) && file_exists($dadosEmpresa['foto_perfil'])
+                        ? htmlspecialchars($dadosEmpresa['foto_perfil'])
+                        : 'img/foto_padrao.jpg';
+                    ?>
+                    <img src="<?php echo $caminhoImagem; ?>" alt="Logo da Empresa" class="foto-perfil-img">
+                </div>
+            </a>
+        <div class="logo">
+            <nav>
+                <a href="perfil_empresa.php" class="btn-sair">Voltar</a>
+            </nav>
+        </div>
+    </header>
+
    <main>
     <section class="login">
         <h1>Adicionar Nova Vaga</h1>

@@ -13,19 +13,20 @@ unset($_SESSION['mensagem']); // Remove a mensagem após exibi-la
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login de Candidato - LINKIDEAU</title>
+    <title>Login de Candidato - CARREIRA IDEAL</title>
 
     <!-- Link para o Google Fonts da logo lindinha (Bebas Neue) -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
     <!-- Link para o CSS -->
     <link rel="stylesheet" href="styles.css">
+    
 </head>
 
 <body>
     <header>
         <div class="logo">
-            <span>LINKIDEAU</span>
+            <span>CARREIRA IDEAL</span>
             <!-- Imagem da logo da ideau com link externo -->
             <a href="https://www.passofundo.ideau.com.br/" target="_blank">
                 <img src="https://www.getulio.ideau.com.br/wp-content/uploads/2019/05/logo_ideau.png" alt="Logo LINKIDEAU">

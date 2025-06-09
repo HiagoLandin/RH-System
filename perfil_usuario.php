@@ -32,6 +32,7 @@ $empresas = $empresa->listarEmpresas();
     <title>Perfil do Candidato - Carreira IDEAU</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="perfil.css">
+    
 </head>
 <body>
     <header>

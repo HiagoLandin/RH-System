@@ -362,6 +362,7 @@ footer p {
 .perfil {
     text-align: center;
     padding: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .perfil h1 {
@@ -639,39 +640,68 @@ h1 {
 
 @media (max-width: 768px) {
   input[type="file"] {
-    width: 133% !important;   /* força o input file a ocupar toda a largura do container */
-    height: auto;             /* altura automática para ajustar ao conteúdo */
-    display: flex;            /* transforma o input em flex container */
-    flex-direction: column;   /* botão em cima, texto embaixo */
+    width: 133% !important;   
+    height: auto;             
+    display: flex;            
+    flex-direction: column;   
   }
   input[type="file"]::file-selector-button {
-    width: 100% !important;  /* botão ocupa toda largura */
-    margin-bottom: 0.4rem;   /* espaçamento entre botão e texto */
-    display: block;          /* botão em linha separada */
+    width: 100% !important;  
+    margin-bottom: 0.4rem;  
+    display: block;          
   }
 }
 
-.voltar-container {
-    background-color: #000000;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+/* Header responsivo */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center; 
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        gap: 0.5rem;;
+        padding: 0.8rem;
+        border-radius: 8px;
+    }
+
+    nav a.btn-sair {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+        min-width: auto;
+        width: 80%; 
+        text-align: center;
+    }
 }
 
+@media (max-width: 768px) {
+  .dados-perfil {
+    flex-direction: column;
+    align-items: flex-start; 
+  }
 
-#btn-voltar {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 2rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    background-color: #000;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
+  /* Opcional para dar um espaçamento no botão */
+  .dados-perfil nav {
+    margin-top: 1rem;
+    width: 100%; /* para o botão ocupar a largura toda, se quiser */
+  }
+
+  .dados-perfil nav .btn-editar {
+    display: inline-block;
+    width: auto; /* botão tamanho natural */
+  }
 }
+
 
 .btn-candidatar {
   display: inline-block;
@@ -688,10 +718,4 @@ h1 {
 
 .btn-candidatar:hover {
   background-color: #0056b3;
-}
-
-#btn-voltar:hover {
-    border: 2px solid #007bff;
-    text-decoration: underline;
-    text-decoration-color: #007bff;
 }

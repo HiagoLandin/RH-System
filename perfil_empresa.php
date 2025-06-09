@@ -71,7 +71,7 @@ $candidatos = $usuario->listarTodos(); // Método para listar todos os usuários
 
                  <div> 
                     <nav>
-                        <a href="editar_perfil_empresa.php" class="btn-sair">✏️</a>
+                        <a href="editar_perfil_empresa.php" class="btn-editar">Editar perfil ✏️</a>
                      </nav>
                 </div>
             </div>

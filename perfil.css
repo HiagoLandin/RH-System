@@ -364,6 +364,9 @@ footer p {
 .anime-card:hover .anime-info p,
 .anime-card:hover .anime-info .botoes {
     display: block;
+
+    
+    
 } 
 @media (max-width: 1024px) {
     .anime-card {
@@ -547,6 +550,35 @@ footer p {
 
 .pagina-vagas .anime-card {
     width: 100%;
+}
+
+/*Css do botão de editar perfil*/
+
+.dados-perfil {
+    position: relative;
+}
+
+.btn-editar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #000;
+    color: #fff;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid #007bff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-editar:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    text-decoration: underline;
+    text-decoration-color: #fff;
 }
 
 /* Ajusta em telas menores a página "minhas_vagas"*/
