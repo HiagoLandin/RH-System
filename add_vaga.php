@@ -71,31 +71,24 @@ if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
     <!-- Link para o CSS -->
+    <link rel="stylesheet" href="perfil.css">
     <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
 
     <header>
-        <div class="foto-perfil">
-            <a href="perfil_empresa.php">
-                    <?php
-                    $caminhoImagem = !empty($dadosEmpresa['foto_perfil']) && file_exists($dadosEmpresa['foto_perfil'])
-                        ? htmlspecialchars($dadosEmpresa['foto_perfil'])
-                        : 'img/foto_padrao.jpg';
-                    ?>
-                    <img src="<?php echo $caminhoImagem; ?>" alt="Logo da Empresa" class="foto-perfil-img">
-                </div>
-            </a>
-        <div class="logo">
+        <div class="logo"></div>
             <nav>
-                <a href="perfil_empresa.php" class="btn-sair">Voltar</a>
+                <a href="perfil_empresa.php" class="btn">Voltar</a>
             </nav>
         </div>
     </header>
 
    <main>
-    <section class="login">
+    <section class="login perfil">
+        <div class="dados-perfil">
         <h1>Adicionar Nova Vaga</h1>
 
         <form method="POST" enctype="multipart/form-data">
@@ -162,9 +155,8 @@ if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
     </select>
     <p><small>Segure Ctrl (Windows) ou Command (Mac) para selecionar múltiplos.</small></p>
 </div>
- <div class="form-group">
-        
 
+<div class="form-group">
 <select name="semestre" id="semestre" required>
     <option value="">Selecione o semestre</option>
     <?php
@@ -179,12 +171,9 @@ if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
     }
     ?>
 </select>
+</div>
 
-    </div>
-
-            <div class="form-group">
-        
-
+<div class="form-group">
 <select name="tipo_de_vaga" id="tipo_de_vaga" required>
     <option value="">Qual o tipo da vaga:</option>
     <?php
@@ -217,7 +206,7 @@ if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
 
 
     <footer>
-        <p>&copy; 2025 LINKIDEAU. Todos os direitos reservados.</p>
+        <p>&copy; 2025 CARREIRA IDEAU. Todos os direitos reservados.</p>
     </footer>
 </body>
 

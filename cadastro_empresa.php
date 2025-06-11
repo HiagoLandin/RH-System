@@ -9,14 +9,14 @@ unset($_SESSION['mensagem']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Empresa - LINKIDEAU</title>
+    <title>Cadastro de Empresa - CARREIRA IDEAU</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <span>LINKIDEAU</span>
+            <span>CARREIRA IDEAU</span>
             <a href="https://www.passofundo.ideau.com.br/" target="_blank">
                 <img src="https://www.getulio.ideau.com.br/wp-content/uploads/2019/05/logo_ideau.png" alt="Logo LINKIDEAU">
             </a>
@@ -66,7 +66,7 @@ unset($_SESSION['mensagem']);
     </main>
 
     <footer>
-        <p>&copy; 2025 LINKIDEAU. Todos os direitos reservados.</p>
+        <p>&copy; 2025 CARREIRA IDEAU. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>

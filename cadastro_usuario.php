@@ -12,7 +12,7 @@ unset($_SESSION['mensagem']); // Remove a mensagem após exibir
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Candidato 23 - LINKIDEAU</title>
+    <title>Cadastro de Candidato 23 - CARREIRA IDEAU</title>
     <!-- Link para o Google Fonts pra deixar a logo bonitinha (Bebas Neue) -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <!-- Link para o CSS -->
@@ -21,7 +21,7 @@ unset($_SESSION['mensagem']); // Remove a mensagem após exibir
 <body>
     <header>
         <div class="logo">
-            <span>LINKIDEAU</span>
+            <span>CARREIRA IDEAU</span>
             <!-- Imagem da logo da ideau com link externo -->
             <a href="https://www.passofundo.ideau.com.br/" target="_blank">
                 <img src="https://www.getulio.ideau.com.br/wp-content/uploads/2019/05/logo_ideau.png" alt="Logo LINKIDEAU">
@@ -86,7 +86,7 @@ unset($_SESSION['mensagem']); // Remove a mensagem após exibir
     </main>
 
     <footer>
-        <p>&copy; 2025 LINKIDEAU. Todos os direitos reservados.</p>
+        <p>&copy; 2025 CARREIRA IDEAU. Todos os direitos reservados.</p>
     </footer>
 
     <!-- Biblioteca Inputmask (tudo isso foi pra deixar o formato de aniver em d/m/a) -->

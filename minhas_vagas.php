@@ -27,9 +27,11 @@ $conn = $database->getConnection();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil da Empresa - Carreira IDEAU</title>
+    <title>Perfil da Empresa - CARREIRA IDEAU</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <header>
@@ -45,14 +47,14 @@ $conn = $database->getConnection();
             </a>
         <div class="logo">
             <nav>
-                <a href="perfil_empresa.php" class="btn-sair">Voltar</a>
+                <a href="perfil_empresa.php" class="btn">Voltar</a>
             </nav>
         </div>
     </header>
 
     <main class="pagina-vagas">
         <section class="lista-cadastrados">
-            <h1 style="font-size: 80px;"><strong>Minhas Vagas e Candidatos</strong></h1>
+            <h1><strong>Minhas Vagas e Candidatos</strong></h1>
             <div class="tabela-container">
                <div class="anime-bloco">
                 <?php if (!empty($vagas)): ?>
@@ -99,7 +101,7 @@ $conn = $database->getConnection();
                                         <?php foreach ($candidatos as $candidato): ?>
                                             <li>
                                                 <?php echo htmlspecialchars($candidato['nome']); ?>
-                                                <a href="perfil_candidato.php?id=<?php echo $candidato['id']; ?>">Ver Perfil</a>
+                                                <a href="perfil_candidato.php?id=<?php echo $candidato['id']; ?>"class="Editar">Ver Perfil</a>
                                             </li>
                                         <?php endforeach; ?>
                                     </ul>

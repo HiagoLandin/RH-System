@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LINKIDEAU</title>
+    <title>CARREIRA IDEAU</title>
     <!-- Link para o Google Fonts (Bebas Neue) -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <!-- Link para o CSS -->
@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class="logo">
-            <span>LINKIDEAU</span>
+            <span>CARREIRA IDEAU</span>
             <!-- Imagem da logo da Ideau com link externo -->
             <a href="https://www.passofundo.ideau.com.br/" target="_blank">
                 <img src="https://www.getulio.ideau.com.br/wp-content/uploads/2019/05/logo_ideau.png" alt="Logo LINKIDEAU">
@@ -27,7 +27,7 @@
 
     <main>
         <section class="hero">
-            <h1>LINKIDEAU</h1>
+            <h1>CARREIRA IDEAU</h1>
             <p>Permite criar perfis, estabelecer conexões e interagir com empresas e outros profissionais.</p>
         </section>
 
@@ -39,7 +39,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 LINKIDEAU. Todos os direitos reservados.</p>
+        <p>&copy; 2025 CARREIRA IDEAU. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>

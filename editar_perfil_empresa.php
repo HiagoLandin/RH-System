@@ -36,11 +36,23 @@ $empresa = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Empresa</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="perfil.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <header>
+        <div class="logo"></div>
+            <nav>
+                <a href="perfil_empresa.php" class="btn">Voltar</a>
+            </nav>
+        </div>
+    </header>
+
     <main>
-        <section class="login">
+        <section class="login perfil">
+            <div class="dados-perfil">
             <h1>Editar Dados da Empresa</h1>
 
             <form action="processar_edicao_empresa.php" method="POST" enctype="multipart/form-data">
@@ -80,15 +92,18 @@ $empresa = $result->fetch_assoc();
                     <small>Deixe em branco se não quiser mudar a senha.</small>
                 </div>
 
+            <div class= "btn-container">
                 <button type="submit" class="btn">Salvar Alterações</button>
-            </form>
+            </div>
 
-            <a href="index.php">Voltar à Página Inicial</a>
+            </div>
+            </form>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 LINKIDEAU. Todos os direitos reservados.</p>
+        <p>&copy; 2025 CARREIRA IDEAU. Todos os direitos reservados.</p>
     </footer>
+
 </body>
 </html>

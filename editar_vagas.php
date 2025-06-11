@@ -90,6 +90,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
+    <header>
+        <div class="logo"></div>
+            <nav>
+                <a href="perfil_empresa.php" class="btn">Voltar</a>
+            </nav>
+        </div>
+    </header>
    <main>
     <section class="login">
         <h1>Editar Nova Vaga</h1>
@@ -218,7 +225,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     <footer>
-        <p>&copy; 2025 LINKIDEAU. Todos os direitos reservados.</p>
+        <p>&copy; 2025 CARREIRA IDEAU. Todos os direitos reservados.</p>
     </footer>
 </body>
 

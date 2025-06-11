@@ -83,7 +83,7 @@ if (!$dadosUsuario) {
                             $caminho = "curriculos/" . rawurlencode($nomeArquivo);
 
                             echo "<p>Currículo: " . htmlspecialchars($nomeArquivo) . "</p>";
-                            echo "<a href='$caminho' target='_blank'>Abrir currículo</a>";
+                            echo "<a href='$caminho' target='_blank' class='Editar'>Abrir currículo</a>";
                         } else {
                             echo "<p>Nenhum currículo disponível.</p>";
                         }

@@ -1,3 +1,4 @@
+/* ==================== RESET E CONFIGURAÇÕES GERAIS ==================== */
 /* Reset básico */
 * {
     margin: 0;
@@ -15,6 +16,15 @@ body {
     min-height: 100vh;
 }
 
+/* Media Queries para Configurações Gerais */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+
+/* ==================== HEADER ==================== */
 /* Estilos do Header */
 header {
     background-color: #1a1a1a;
@@ -39,7 +49,6 @@ header .logo {
     flex: 1;
 }
 
-
 header .logo span {
     font-size: 2rem;
     font-weight: normal;
@@ -49,7 +58,7 @@ header .logo span {
 }
 
 header .logo img {
-    width: 50px;
+    width: 75px;
     height: auto;
 }
 
@@ -72,7 +81,42 @@ header nav a:hover {
     text-decoration-color: #007bff;
 }
 
+/* Media Queries para Header */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center; 
+        padding: 1rem;
+        gap: 1rem;
+    }
 
+    .logo {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        gap: 0.5rem;
+        padding: 0.8rem;
+        border-radius: 8px;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+        margin: 0.2rem 0;
+        width: 80%;
+        text-align: center;
+    }
+
+    .header-direita {
+        align-items: center;
+    }
+}
+
+/* ==================== MAIN/HERO SECTION ==================== */
 /* Estilos do Main */
 main {
     padding: 2rem;
@@ -95,6 +139,30 @@ main {
     margin: 0 auto;
 }
 
+/* Media Queries para Hero Section */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 4.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+        max-width: 90%;
+    }
+}
+
+/* ==================== CTA SECTION ==================== */
 /* Estilos da Seção CTA */
 .cta {
     margin-top: 2.5rem;
@@ -116,6 +184,24 @@ main {
     background-color: #0056b3;
 }
 
+/* Media Queries para CTA Section */
+@media (max-width: 768px) {
+    .cta {
+        margin-top: 1.5rem;
+    }
+    
+    .cta .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        margin: 0.5rem;
+        display: block;
+        width: 80%;
+        max-width: 250px;
+        margin: 0.5rem auto;
+    }
+}
+
+/* ==================== FOOTER ==================== */
 /* Estilos do Footer */
 footer {
     background-color: #1a1a1a;
@@ -131,6 +217,18 @@ footer p {
     font-size: 0.9rem;
 }
 
+/* Media Queries para Footer */
+@media (max-width: 768px) {
+    footer {
+        padding: 0.8rem 0;
+    }
+    
+    footer p {
+        font-size: 0.8rem;
+    }
+}
+
+/* ==================== PÁGINA DE CADASTRO ==================== */
 /* Estilos da página de Cadastro */
 .cadastro {
     text-align: center;
@@ -168,33 +266,55 @@ footer p {
     background-color: #0056b3;
 }
 
+/* Media Queries para Página de Cadastro */
+@media (max-width: 768px) {
+    .cadastro {
+        padding: 1.5rem;
+    }
+    
+    .cadastro h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .cadastro form {
+        padding: 0 1rem;
+    }
+    
+    .cadastro button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* ==================== NOTIFICAÇÕES ==================== */
 /* Estilo da notificação */
 .notificacao {
     position: fixed;
-    top: 80px; /* Ajuste o valor para ficar abaixo do header */
+    top: 80px;
     right: 20px;
     z-index: 9999;
     padding: 15px 25px;
     border-radius: 10px;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 18px;
-    color: white; /* Texto branco */
-    background-color: black; /* Fundo preto */
-    border: 2px solid #007BFF; /* Borda azul */
+    color: white;
+    background-color: black;
+    border: 2px solid #007BFF;
     animation: fadeOut 5s ease forwards;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Estilo para notificação de sucesso */
 .notificacao.success {
-    background-color: #28a745; /* Verde */
-    border-color: #218838; /* Verde mais escuro */
+    background-color: #28a745;
+    border-color: #218838;
 }
 
 /* Estilo para notificação de erro */
 .notificacao.error {
-    background-color: #dc3545; /* Vermelho */
-    border-color: #c82333; /* Vermelho mais escuro */
+    background-color: #dc3545;
+    border-color: #c82333;
 }
 
 /* Animação para esconder a notificação */
@@ -204,6 +324,19 @@ footer p {
     100% { opacity: 0; }
 }
 
+/* Media Queries para Notificações */
+@media (max-width: 768px) {
+    .notificacao {
+        top: 70px;
+        right: 10px;
+        left: 10px;
+        font-size: 16px;
+        padding: 12px 20px;
+        text-align: center;
+    }
+}
+
+/* ==================== PÁGINA DE LOGIN ==================== */
 /* Estilos da página de Login */
 .login {
     text-align: center;
@@ -239,7 +372,6 @@ footer p {
     width: 100%;
     padding: 0.8rem;
     font-size: 1rem;
-    border: 2px solid #007bff;
     border-radius: 5px;
     background-color: #1a1a1a;
     color: #fff;
@@ -261,7 +393,6 @@ footer p {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
-
 }
 
 .login button:hover {
@@ -283,7 +414,29 @@ footer p {
     text-decoration: underline;
 }
 
-/* Estilos da página Sobre Nós */
+/* Media Queries para Página de Login */
+@media (max-width: 768px) {
+    .login {
+        padding: 1.5rem;
+    }
+    
+    .login h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .login form {
+        padding: 0 1rem;
+    }
+    
+    .login button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* ==================== PÁGINA SOBRE NÓS E IMAGENS GERAIS ==================== */
+/* Estilos da página Sobre Nós e sobre imagens gerais */
 .sobre {
     text-align: center;
     padding: 2rem;
@@ -301,7 +454,7 @@ footer p {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 2rem; /* Espaçamento entre as fotos */
+    gap: 2rem;
     margin-bottom: 2rem;
 }
 
@@ -311,26 +464,26 @@ footer p {
 }
 
 .foto a {
-    text-decoration: none; /* Remove o sublinhado do link */
+    text-decoration: none;
 }
 
 .foto img {
     width: 100%;
     height: 300px;
-    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
-    border: 4px solid #007bff; /* Borda azul */
-    border-radius: 10px; /* Bordas arredondadas */
-    transition: transform 0.3s ease; /* Efeito de zoom ao passar o mouse */
+    object-fit: cover;
+    border: 4px solid #007bff;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
 }
 
 .foto img:hover {
-    transform: scale(1.05); /* Zoom ao passar o mouse */
+    transform: scale(1.05);
 }
 
 .foto h3 {
     font-size: 1.5rem;
-    color: #007bff; /* Cor azul para os nomes */
-    margin: 1rem 0 0.5rem; /* Espaçamento acima e abaixo */
+    color: #007bff;
+    margin: 1rem 0 0.5rem;
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 1px;
 }
@@ -341,7 +494,7 @@ footer p {
     color: #fff;
 }
 
-/* Estilo do botão "Voltar à Página Inicial" */
+/* ==Estilo do botão Voltar == */
 .btn-voltar {
     display: inline-block;
     background-color: #007bff;
@@ -351,13 +504,61 @@ footer p {
     border-radius: 5px;
     font-size: 1rem;
     transition: background-color 0.3s ease;
-    margin-top: 2rem; /* Espaçamento acima do botão */
+    margin-top: 2rem;
 }
 
 .btn-voltar:hover {
     background-color: #0056b3;
 }
 
+/* Media Queries para Página Sobre Nós */
+@media (max-width: 992px) {
+    .fotos {
+        gap: 1.5rem;
+    }
+    
+    .foto {
+        width: 200px;
+    }
+    
+    .foto img {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sobre {
+        padding: 1.5rem;
+    }
+    
+    .sobre h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .fotos {
+        gap: 1rem;
+    }
+    
+    .foto {
+        width: 150px;
+    }
+    
+    .foto img {
+        height: 200px;
+    }
+    
+    .foto h3 {
+        font-size: 1.2rem;
+    }
+    
+    .btn-voltar {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ==================== PÁGINA DE PERFIL DA EMPRESA ==================== */
 /* Estilos da página de Perfil da Empresa */
 .perfil {
     text-align: center;
@@ -365,9 +566,8 @@ footer p {
     margin-bottom: 0.5rem;
 }
 
-.perfil h1 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
+.perfil h1 { 
+    margin-bottom: 0.5rem;
     color: #fff;
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 2px;
@@ -392,7 +592,7 @@ footer p {
 /* Estilos para o botão de logout */
 .btn-logout {
     display: inline-block;
-    background-color: #dc3545; /* Vermelho */
+    background-color: #dc3545;
     color: #fff;
     padding: 0.8rem 1.5rem;
     text-decoration: none;
@@ -403,9 +603,34 @@ footer p {
 }
 
 .btn-logout:hover {
-    background-color: #c82333; /* Vermelho mais escuro */
+    background-color: #c82333;
 }
 
+/* Media Queries para Página de Perfil */
+@media (max-width: 768px) {
+    .perfil {
+        padding: 1.5rem;
+    }
+    
+    .perfil h1 {
+        font-size: 2rem;
+    }
+    
+    .dados-empresa {
+        padding: 0 1rem;
+    }
+    
+    .dados-empresa p {
+        font-size: 1rem;
+    }
+    
+    .btn-logout {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ==================== PÁGINA DE EMPRESAS CADASTRADAS ==================== */
 /* Estilos da página de Empresas Cadastradas */
 .empresas-cadastradas {
     text-align: center;
@@ -423,12 +648,12 @@ footer p {
 .lista-empresas {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem; /* Espaçamento entre as empresas */
+    gap: 1.5rem;
     justify-content: center;
 }
 
 .empresa {
-    width: calc(20% - 1.5rem); /* 5 empresas por linha */
+    width: calc(20% - 1.5rem);
     background-color: #1a1a1a;
     border-radius: 10px;
     padding: 1rem;
@@ -437,7 +662,7 @@ footer p {
 }
 
 .empresa:hover {
-    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+    transform: scale(1.05);
 }
 
 .empresa img {
@@ -482,10 +707,46 @@ footer p {
     background-color: #0056b3;
 }
 
+/* Media Queries para Empresas Cadastradas */
+@media (max-width: 1200px) {
+    .empresa {
+        width: calc(25% - 1.5rem);
+    }
+}
+
+@media (max-width: 992px) {
+    .empresa {
+        width: calc(33.333% - 1.5rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .empresas-cadastradas {
+        padding: 1.5rem;
+    }
+    
+    .empresas-cadastradas h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .empresa {
+        width: calc(50% - 1.5rem);
+    }
+}
+
+@media (max-width: 576px) {
+    .empresa {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* ==================== FORMULÁRIOS ELEMENTOS ==================== */
 #cursos {
     width: 72%;
     padding: 0.8rem;
-    font-size: 1.1rem; /* aumento leve da fonte */
+    font-size: 1.1rem;
     border: 2px solid #007bff;
     border-radius: 5px;
     background-color: #1a1a1a;
@@ -513,7 +774,6 @@ footer p {
     text-align: center;
 }
 
-
 .form-group label {
     display: block;
     font-size: 1.2rem;
@@ -527,7 +787,7 @@ footer p {
     font-size: 1rem;
     border: 2px solid #007bff;
     border-radius: 5px;
-    background-color: #1a1a1a;
+    background-color: #333333;
     color: #fff;
 }
 
@@ -539,13 +799,13 @@ footer p {
 .form-group textarea {
     width: 72%;
     padding: 0.8rem;
-    font-size: 1.1rem; /* texto mais legível */
+    font-size: 1.1rem;
     border: 2px solid #007bff;
     border-radius: 5px;
     background-color: #1a1a1a;
     color: #fff;
-    resize: vertical; /* permite redimensionar verticalmente, se necessário */
-    min-height: 150px; /* altura mínima razoável para facilitar a digitação */
+    resize: vertical;
+    min-height: 150px;
 }
 
 /* Foco no textarea */
@@ -582,140 +842,133 @@ h1 {
     padding-bottom: 0.5rem;
     margin-bottom: 2rem;
 }
+
 #form-imagem {
-  width: 76%;              
-  display: flex;
-  flex-direction: column;  
-  justify-content: center; 
-  align-items: center;     
-  text-align: center;      
-  gap: 8px;                
-  padding: 10px;           
-  margin: 0 auto;          
+    width: 76%;              
+    display: flex;
+    flex-direction: column;  
+    justify-content: center; 
+    align-items: center;     
+    text-align: center;      
+    gap: 8px;                
+    padding: 10px;           
+    margin: 0 auto;          
 }
 
 .btn-container {
-  text-align: center;
-  margin-top: 2rem;
-}
-/* ===== RESPONSIVIDADE PARA TELAS MENORES ===== */
-@media (max-width: 768px) {
-  #form-imagem {
-    width: 90%;
-    padding: 1rem;
-  }
-
-  .form-group input,
-  .form-group textarea,
-  .form-group select,
-  #cursos,
-  #localizacao {
-    width: 100%;
-    font-size: 1rem;
-  }
-
-  .form-group textarea {
-    min-height: 120px;
-  }
-
-  #cursos option {
-    font-size: 0.9rem;
-  }
-
-  h1 {
-    font-size: 1.6rem;
-  }
-
-  .btn {
-    width: 100%;
-    max-width: 300px;
-    font-size: 1rem;
-    padding: 0.7rem 1rem;
-  }
-
-  .btn-container {
-    padding: 0 1rem;
-  }
+    text-align: center;
+    margin-top: 2rem;
 }
 
+/* Media Queries para Elementos de Formulário */
 @media (max-width: 768px) {
-  input[type="file"] {
-    width: 133% !important;   
-    height: auto;             
-    display: flex;            
-    flex-direction: column;   
-  }
-  input[type="file"]::file-selector-button {
-    width: 100% !important;  
-    margin-bottom: 0.4rem;  
-    display: block;          
-  }
-}
-
-/* Header responsivo */
-
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: center; 
+    #form-imagem {
+        width: 90%;
         padding: 1rem;
-        gap: 1rem;
     }
 
-    .logo {
-        display: none;
+    .form-group input,
+    .form-group textarea,
+    .form-group select,
+    #cursos,
+    #localizacao {
+        width: 100%;
+        font-size: 1rem;
     }
 
-    nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
-        gap: 0.5rem;;
-        padding: 0.8rem;
-        border-radius: 8px;
+    .form-group textarea {
+        min-height: 120px;
     }
 
-    nav a.btn-sair {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.8rem;
-        min-width: auto;
-        width: 80%; 
-        text-align: center;
+    #cursos option {
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        font-size: 1rem;
+        padding: 0.7rem 1rem;
+    }
+
+    .btn-container {
+        padding: 0 1rem;
     }
 }
 
 @media (max-width: 768px) {
-  .dados-perfil {
-    flex-direction: column;
-    align-items: flex-start; 
-  }
-
-  /* Opcional para dar um espaçamento no botão */
-  .dados-perfil nav {
-    margin-top: 1rem;
-    width: 100%; /* para o botão ocupar a largura toda, se quiser */
-  }
-
-  .dados-perfil nav .btn-editar {
-    display: inline-block;
-    width: auto; /* botão tamanho natural */
-  }
+    input[type="file"] {
+        width: 133% !important;   
+        height: auto;             
+        display: flex;            
+        flex-direction: column;   
+    }
+    
+    input[type="file"]::file-selector-button {
+        width: 100% !important;  
+        margin-bottom: 0.4rem;  
+        display: block;          
+    }
 }
 
-
+/* ==================== BOTÕES E ELEMENTOS ADICIONAIS ==================== */
 .btn-candidatar {
-  display: inline-block;
-  background-color: #007bff;
-  color: #fff;
-  padding: 0.8rem 1.5rem;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .btn-candidatar:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
+}
+
+.imagem-vaga {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries para Botões e Elementos Adicionais */
+@media (max-width: 768px) {
+    .btn-candidatar {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .imagem-vaga {
+        max-width: 100%;
+    }
+}
+
+/* ==================== PERFIL RESPONSIVO ==================== */
+@media (max-width: 768px) {
+    .dados-perfil {
+        flex-direction: column;
+        align-items: flex-start; 
+    }
+
+    .dados-perfil nav {
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .dados-perfil nav .btn-editar {
+        display: inline-block;
+        width: auto;
+    }
 }

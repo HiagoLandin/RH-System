@@ -37,74 +37,89 @@ $usuario = $result->fetch_assoc();
      <!-- Link para o Google Fonts pra deixar a logo bonitinha (Bebas Neue) -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <!-- Link para o CSS -->
+    <link rel="stylesheet" href="perfil.css">
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
-    <main>
-        <section class="login">
-            <h1>Editar Perfil</h1>
 
-            <form action="processar_edicao.php" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="foto_perfil">Foto de Perfil:</label>
-                    <input type="file" name="foto_perfil" accept="image/*">
-                </div>
+    <header>
+        <div class="logo"></div> 
+        <nav>
+            <a href="perfil_usuario.php" class="btn">Voltar</a>
+        </nav>
 
-                <div class="form-group">
-                    <label for="nome">Nome Completo:</label>
-                    <input type="text" name="nome" value="<?php echo htmlspecialchars($usuario['nome']); ?>" required>
-                </div>
+    </header>
 
-                <div class="form-group">
-                    <label for="cpf">CPF:</label>
-                    <input type="text" name="cpf" value="<?php echo htmlspecialchars($usuario['cpf']); ?>" required>
-                </div>
+<main>
+    <section class="login perfil">
+        <div class="dados-perfil">
+        <h1>Editar Perfil</h1>
+        <form action="processar_edicao.php" method="POST" enctype="multipart/form-data">
 
-                <div class="form-group">
-                    <label for="data_nascimento">Data de Nascimento:</label>
-                    <input type="text" name="data_nascimento" value="<?php echo htmlspecialchars($usuario['data_nascimento']); ?>" required>
-                </div>
+            <div class="form-group">
+                <label for="foto_perfil">Foto de Perfil:</label>
+                <input type="file" name="foto_perfil" accept="image/*">
+            </div>
 
-                <div class="form-group">
-                    <label for="descricao">Descrição:</label>
-                    <textarea name="descricao" rows="5" cols="30" required><?php echo htmlspecialchars($usuario['descricao']); ?></textarea>
-                </div>
+            <div class="form-group">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" name="nome" value="<?php echo htmlspecialchars($usuario['nome']); ?>" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="telefone">Telefone:</label>
-                    <input type="text" name="telefone" value="<?php echo htmlspecialchars($usuario['telefone']); ?>" required>
-                </div>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" name="cpf" value="<?php echo htmlspecialchars($usuario['cpf']); ?>" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="curriculo">Currículo (PDF):</label>
-                    <input type="file" name="curriculo" accept="application/pdf">
-                </div>
+            <div class="form-group">
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="text" name="data_nascimento" value="<?php echo htmlspecialchars($usuario['data_nascimento']); ?>" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="email">E-mail:</label>
-                    <input type="email" name="email" value="<?php echo htmlspecialchars($usuario['email']); ?>" required>
-                </div>
+            <div class="form-group">
+                <label for="descricao">Descrição:</label>
+                <textarea name="descricao" rows="5" cols="30" required><?php echo htmlspecialchars($usuario['descricao']); ?></textarea>
+            </div>
 
-                <div class="form-group">
-                    <label for="senha">Senha:</label>
-                    <input type="password" name="senha">
-                    <small>Deixe em branco se não quiser mudar a senha.</small>
-                </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="text" name="telefone" value="<?php echo htmlspecialchars($usuario['telefone']); ?>" required>
+            </div>
 
+            <div class="form-group">
+                <label for="curriculo">Currículo (PDF):</label>
+                <input type="file" name="curriculo" accept="application/pdf">
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" value="<?php echo htmlspecialchars($usuario['email']); ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha">
+                <small>Deixe em branco se não quiser mudar a senha.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="semestre">Semestre:</label>
                 <select name="semestre" id="semestre" required>
-                <option value="">Selecione o semestre</option>
-                <?php
-                $semestres = [
-                    "1° semestre", "2° semestre", "3° semestre", "4° semestre",
-                    "5° semestre", "6° semestre", "7° semestre", "8° semestre",
-                    "9° semestre", "10° semestre", "11° semestre", "12° semestre"
-                ];
-                foreach ($semestres as $semestre) {
-                    $selected = ($dadosUsuario['semestre'] === $semestre) ? 'selected' : '';
-                    echo "<option value=\"$semestre\" $selected>$semestre</option>";
-                }
-                ?>
-            </select>
+                    <option value="">Selecione o semestre</option>
+                    <?php
+                    $semestres = [
+                        "1° semestre", "2° semestre", "3° semestre", "4° semestre",
+                        "5° semestre", "6° semestre", "7° semestre", "8° semestre",
+                        "9° semestre", "10° semestre", "11° semestre", "12° semestre"
+                    ];
+                    foreach ($semestres as $semestre) {
+                        $selected = ($dadosUsuario['semestre'] === $semestre) ? 'selected' : '';
+                        echo "<option value=\"$semestre\" $selected>$semestre</option>";
+                    }
+                    ?>
+                </select>
+            </div>
 
             <div class="form-group">
                 <label for="cursos">Cursos:</label>
@@ -121,7 +136,6 @@ $usuario = $result->fetch_assoc();
                         "Nutrição", "Pedagogia", "Psicologia", "Química", "Secretariado Executivo", "Sociologia"
                     ];
 
-                    // Explode os cursos salvos em um array
                     $cursosSelecionados = explode(',', $dadosUsuario['cursos']);
 
                     foreach ($todosCursos as $curso) {
@@ -132,17 +146,17 @@ $usuario = $result->fetch_assoc();
                 </select>
                 <p><small>Segure Ctrl (Windows) ou Command (Mac) para selecionar múltiplos.</small></p>
             </div>
+                <button type="submit" class="btn-voltar">Salvar Alterações</button>
+            </div>
 
+        </div>
+        </form>
+    </section>
+</main>
 
-                <button type="submit" class="btn">Salvar Alterações</button>
-            </form>
-
-            <a href="index.php">Voltar à Página Inicial</a>
-        </section>
-    </main>
 
     <footer>
-        <p>&copy; 2025 LINKIDEAU. Todos os direitos reservados.</p>
+        <p>&copy; 2025 CARREIRA IDEAU. Todos os direitos reservados.</p>
     </footer>
 </body>
 

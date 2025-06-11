@@ -13,7 +13,7 @@ unset($_SESSION['mensagem']); // Remove a mensagem após exibi-la
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login de Candidato - CARREIRA IDEAL</title>
+    <title>Login de Candidato - CARREIRA IDEAU</title>
 
     <!-- Link para o Google Fonts da logo lindinha (Bebas Neue) -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@ unset($_SESSION['mensagem']); // Remove a mensagem após exibi-la
 <body>
     <header>
         <div class="logo">
-            <span>CARREIRA IDEAL</span>
+            <span>CARREIRA IDEAU</span>
             <!-- Imagem da logo da ideau com link externo -->
             <a href="https://www.passofundo.ideau.com.br/" target="_blank">
                 <img src="https://www.getulio.ideau.com.br/wp-content/uploads/2019/05/logo_ideau.png" alt="Logo LINKIDEAU">
@@ -73,7 +73,7 @@ unset($_SESSION['mensagem']); // Remove a mensagem após exibi-la
     </main>
 
     <footer>
-        <p>&copy; 2025 LINKIDEAU. Todos os direitos reservados.</p>
+        <p>&copy; 2025 CARREIRA IDEAU. Todos os direitos reservados.</p>
     </footer>
 </body>
 

@@ -12,7 +12,7 @@ unset($_SESSION['mensagem']); // Remove a mensagem após exibi-la
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login de Empresa - Carreira Ideal</title>
+    <title>Login de Empresa - CARREIRA IDEAU</title>
     <!-- Link para o Google Fonts fofo (Bebas Neue) -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <!-- Link para o CSS -->
@@ -21,7 +21,7 @@ unset($_SESSION['mensagem']); // Remove a mensagem após exibi-la
 <body>
     <header>
         <div class="logo">
-            <span>Carreira Ideal</span>
+            <span>CARREIRA IDEAU</span>
             <!-- Imagem da logo da ideau com link externo -->
             <a href="https://www.passofundo.ideau.com.br/" target="_blank">
                 <img src="https://www.getulio.ideau.com.br/wp-content/uploads/2019/05/logo_ideau.png" alt="Logo LINKIDEAU">
@@ -29,7 +29,7 @@ unset($_SESSION['mensagem']); // Remove a mensagem após exibi-la
         </div>
         <nav>
             <a href="login_empresa.php" class="btn">Empresa</a>
-         <a href="login.php" class="btn">Candidato</a> <!-- Botão de login -->
+            <a href="login.php" class="btn">Candidato</a> <!-- Botão de login -->
             <a href="sobre.php" class="btn">Sobre Nós</a>
         </nav>
     </header>
@@ -62,7 +62,7 @@ unset($_SESSION['mensagem']); // Remove a mensagem após exibi-la
     </main>
 
     <footer>
-        <p>&copy; 2025 LINKIDEAU. Todos os direitos reservados.</p>
+        <p>&copy; 2025 CARREIRA IDEAU. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>

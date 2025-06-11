@@ -20,51 +20,49 @@ if (!$vaga) {
 <head>
     <meta charset="UTF-8">
     <title>Detalhes da Vaga - CARREIRA IDEAU</title>
+    <link rel="stylesheet" href="perfil.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-    <div class="logo">
-        <span>CARREIRA IDEAU</span>
-        <a href="https://www.passofundo.ideau.com.br/" target="_blank">
-            <img src="https://www.getulio.ideau.com.br/wp-content/uploads/2019/05/logo_ideau.png" alt="Logo Ideau">
-        </a>
-    </div>
-    <nav>
-        <a href="index.php" class="btn">Início</a>
-        <a href="sobre.php" class="btn">Sobre Nós</a>
-        <a href="feed.php" class="btn-sair">Voltar</a>
-    </nav>
-</header>
+    <header>
+        <div class="logo"></div> 
+        <nav>
+            <a href="feed.php" class="btn">Voltar</a>
+        </nav>
+
+    </header>
 
 <main>
-    <section class="vaga-detalhes">
-        <h1>Detalhes da Vaga</h1>
+    <section class="perfil">
+        <div class="dados-perfil">
+            <div class="informacoes-perfil">
+                <h1>Detalhes da Vaga</h1>
 
-        <?php if (!empty($vaga['imagem_vaga']) && file_exists($vaga['imagem_vaga'])): ?>
-            <img src="<?php echo htmlspecialchars($vaga['imagem_vaga']); ?>" alt="Imagem da Vaga" class="imagem-vaga">
-        <?php endif; ?>
+                <?php if (!empty($vaga['imagem_vaga']) && file_exists($vaga['imagem_vaga'])): ?>
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <img src="<?php echo htmlspecialchars($vaga['imagem_vaga']); ?>" alt="Imagem da Vaga" class="imagem-vaga">
+                    </div>
+                <?php endif; ?>
 
-        <div class="vaga-info">
-            <p><strong>Empresa:</strong> <?php echo htmlspecialchars($vaga['nome_empresa']); ?></p>
-            <p><strong>Descrição:</strong> <?php echo nl2br(htmlspecialchars($vaga['descricao'])); ?></p>
-            <p><strong>Requisitos:</strong> <?php echo nl2br(htmlspecialchars($vaga['requisitos'])); ?></p>
-            <p><strong>Área:</strong> <?php echo htmlspecialchars($vaga['area']); ?></p>
-            <p><strong>Cursos:</strong> <?php echo htmlspecialchars($vaga['cursos']); ?></p>
-            <p><strong>Semestre:</strong> <?php echo htmlspecialchars($vaga['semestre']); ?></p>
-            <p><strong>Tipo de Vaga:</strong> <?php echo htmlspecialchars($vaga['tipo_de_vaga']); ?></p>
-            <p><strong>Localização:</strong> <?php echo htmlspecialchars($vaga['localizacao']); ?></p>
+                <p><strong>Empresa:</strong> <?php echo htmlspecialchars($vaga['nome_empresa']); ?></p>
+                <p><strong>Descrição:</strong> <?php echo nl2br(htmlspecialchars($vaga['descricao'])); ?></p>
+                <p><strong>Requisitos:</strong> <?php echo nl2br(htmlspecialchars($vaga['requisitos'])); ?></p>
+                <p><strong>Área:</strong> <?php echo htmlspecialchars($vaga['area']); ?></p>
+                <p><strong>Cursos:</strong> <?php echo htmlspecialchars($vaga['cursos']); ?></p>
+                <p><strong>Semestre:</strong> <?php echo htmlspecialchars($vaga['semestre']); ?></p>
+                <p><strong>Tipo de Vaga:</strong> <?php echo htmlspecialchars($vaga['tipo_de_vaga']); ?></p>
+                <p><strong>Localização:</strong> <?php echo htmlspecialchars($vaga['localizacao']); ?></p>
+
+                <a href="candidatar.php?vaga_id=<?php echo $vaga['id']; ?>" class="btn-candidatar">Candidatar-se</a>
+            </div>
         </div>
-
-        <a href="candidatar.php?vaga_id=<?php echo $vaga['id']; ?>" class="btn-candidatar">Candidatar-se</a>
-
-
     </section>
 </main>
 
+
 <footer>
-    <p>&copy; 2025 LINKIDEAU. Todos os direitos reservados.</p>
+    <p>&copy; 2025 CARREIRA IDEAU. Todos os direitos reservados.</p>
 </footer>
 
 </body>

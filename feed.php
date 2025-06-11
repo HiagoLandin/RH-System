@@ -56,9 +56,11 @@ $dadosUsuario = $usuario->buscarPorId($usuario_id);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do Candidato - LINKIDEAU</title>
+    <title>Perfil do Candidato - CARREIRA IDEAU</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="perfil.css">
+
 </head>
 <body>
 <header>
@@ -110,10 +112,9 @@ $dadosUsuario = $usuario->buscarPorId($usuario_id);
         <button type="submit" class="botao-pesquisa">Aplicar</button>
       </form>
     </div>
-
-    <nav>
-      <a href="logout.php" class="btn-sair">Sair</a>
-    </nav>
+        <nav>
+            <a href="logout.php" class="btn">Sair</a>
+        </nav>
   </div>
 </header>
 <main>  
@@ -140,7 +141,7 @@ $dadosUsuario = $usuario->buscarPorId($usuario_id);
                                 <p><strong>Curso:</strong> <?php echo htmlspecialchars($vaga['cursos']); ?></p>
                                 <p><strong>Semestre:</strong> <?php echo htmlspecialchars($vaga['semestre']); ?></p>
                                 <p><strong>Tipo de Vaga:</strong> <?php echo htmlspecialchars($vaga['tipo_de_vaga']); ?></p>
-                                <a href="ver_vagas.php?id=<?= $vaga['id'] ?>" class="detalhes">Detalhes</a>
+                                <a href="ver_vagas.php?id=<?= $vaga['id'] ?>" class="Editar">Detalhes</a>
                             </div>
                         </div>
                     </div>
@@ -155,7 +156,7 @@ $dadosUsuario = $usuario->buscarPorId($usuario_id);
     </main>
 
     <footer>
-        <p>&copy; 2025 LINKIDEAU. Todos os direitos reservados.</p>
+        <p>&copy; 2025 CARREIRA IDEAU. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>

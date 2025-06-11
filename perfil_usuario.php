@@ -29,26 +29,18 @@ $empresas = $empresa->listarEmpresas();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do Candidato - Carreira IDEAU</title>
+    <title>Perfil do Candidato - CARREIRA IDEAU</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="styles.css">
+
     
 </head>
 <body>
     <header>
-        <div class="logo">
-            <a href="perfil_usuario.php"> 
-                <?php $caminhoImagem = !empty($dadosUsuario['foto_perfil']) && file_exists($dadosUsuario['foto_perfil'])
-                ? htmlspecialchars($dadosUsuario['foto_perfil'])
-                : 'img/foto_padrao.jpg';
-                ?>
-                <img src="<?php echo $caminhoImagem; ?>" alt="Foto de Perfil" class="foto-perfil-img">
-            </a>
-        </div> 
-
+        <div class="logo"></div> 
         <nav>
-            <a href="feed.php" class="btn-sair">Voltar</a>
-            <a href="logout.php" class="btn-sair">Sair</a>
+            <a href="feed.php" class="btn">Voltar</a>
         </nav>
 
     </header>
@@ -72,7 +64,7 @@ $empresas = $empresa->listarEmpresas();
                 </div>
                 <div> 
                     <nav>
-                        <a href="editar_perfil.php" class="btn-sair">✏️</a>
+                        <a href="editar_perfil.php" class="btn-editar">Editar perfil ✏️</a>
                      </nav>
                 </div>
             </div>
@@ -97,7 +89,7 @@ $empresas = $empresa->listarEmpresas();
                             $caminho = "curriculos/" . rawurlencode($nomeArquivo);
 
                             echo "<p>Currículo: " . htmlspecialchars($nomeArquivo) . "</p>";
-                            echo "<a href='$caminho' target='_blank'>Abrir currículo</a>";
+                            echo "<a href='$caminho' target='_blank' class='Editar'>Abrir currículo</a>";
                         } else {
                             echo "<p>Nenhum currículo disponível.</p>";
                         }
@@ -148,13 +140,13 @@ $conn = $database->getConnection();
                     ?>
                     <img src="<?php echo $imagemVaga; ?>" alt="Imagem da vaga">
                     <div class="detalhes">
-                       
-                            <h4><strong>Empresa:</strong> <?php echo htmlspecialchars($vaga['nome_empresa']); ?></h4>                               
-                                <p><strong>Area:</strong> <?php echo htmlspecialchars($vaga['area']); ?></p>
-                                <p><strong>Curso:</strong> <?php echo htmlspecialchars($vaga['cursos']); ?></p>
-                                <p><strong>Semestre:</strong> <?php echo htmlspecialchars($vaga['semestre']); ?></p>
-                                <p><strong>Tipo de Vaga:</strong> <?php echo htmlspecialchars($vaga['tipo_de_vaga']); ?></p>
-                                <a href="ver_vagas.php?id=<?= $vaga['id'] ?>" class="detalhes">Detalhes</a></div>
+                        <h4><strong>Empresa:</strong> <?php echo htmlspecialchars($vaga['nome_empresa']); ?></h4>                               
+                        <p><strong>Area:</strong> <?php echo htmlspecialchars($vaga['area']); ?></p>
+                        <p><strong>Curso:</strong> <?php echo htmlspecialchars($vaga['cursos']); ?></p>
+                        <p><strong>Semestre:</strong> <?php echo htmlspecialchars($vaga['semestre']); ?></p>
+                        <p><strong>Tipo de Vaga:</strong> <?php echo htmlspecialchars($vaga['tipo_de_vaga']); ?></p>
+                        <a href="ver_vagas.php?id=<?= $vaga['id'] ?>" class="vagas-cadastradas">Detalhes</a>
+                    </div>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
@@ -166,7 +158,7 @@ $conn = $database->getConnection();
     </main>
 
     <footer>
-        <p>&copy; 2025 LINKIDEAU. Todos os direitos reservados.</p>
+        <p>&copy; 2025 CARREIRA IDEAU. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
