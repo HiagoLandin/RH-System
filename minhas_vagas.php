@@ -71,44 +71,15 @@ $conn = $database->getConnection();
                                 <div class="anime-info">
                                     <div class="detalhes">
                                         <p><strong>Descrição:</strong> <?php echo htmlspecialchars($vaga['descricao']); ?></p>
+                                      
+
                                     </div>
+                                      
                                 </div>
+                                      
                             </div>
-
-                            <div class="candidatos">
-                                <?php
-                                // Buscar candidatos dessa vaga
-                                $sql = "
-                                    SELECT u.* FROM candidaturas c
-                                    JOIN usuarios u ON c.usuario_id = u.id
-                                    WHERE c.vaga_id = ?
-                                ";
-                                $stmt = mysqli_prepare($conn, $sql);
-                                mysqli_stmt_bind_param($stmt, "i", $vaga['id']);
-                                mysqli_stmt_execute($stmt);
-                                $result = mysqli_stmt_get_result($stmt);
-
-                                $candidatos = [];
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $candidatos[] = $row;
-                                }
-
-                                mysqli_stmt_close($stmt);
-                                ?>
-
-                                <?php if (!empty($candidatos)): ?>
-                                    <ul>
-                                        <?php foreach ($candidatos as $candidato): ?>
-                                            <li>
-                                                <?php echo htmlspecialchars($candidato['nome']); ?>
-                                                <a href="perfil_candidato.php?id=<?php echo $candidato['id']; ?>"class="Editar">Ver Perfil</a>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                <?php else: ?>
-                                    <p>Nenhum candidato para esta vaga ainda.</p>
-                                <?php endif; ?>
-                            </div>
+                              <a href="candidatos_vaga.php?vaga_id=<?= $vaga['id'] ?>" class="Editar">Detalhes</a>
+                           
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>

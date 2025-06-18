@@ -217,7 +217,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <button type="submit" class="btn">Salvar Alterações</button>
+    
+  
+    
 </form>
+     <a href="excluir_vaga.php?id=<?= $dadosVaga['id'] ?>&empresa_id=<?= $dadosVaga['empresa_id'] ?>"
+   onclick="return confirm('Tem certeza que deseja excluir esta vaga?')">
+   <button style="background-color: red; margin-left: 200px;" class="btn">Excluir</button>
+</a>
 
 
     </section>

@@ -25,6 +25,7 @@ if (!$dadosEmpresa) {
     exit;
 }
 
+
 $usuario = new Usuario();
 $candidatos = $usuario->listarTodos(); // Método para listar todos os usuários (candidatos)
 ?>

@@ -972,3 +972,19 @@ h1 {
         width: auto;
     }
 }
+
+.card-candidato {
+
+    display: flex;
+
+    align-items: center;      /* Alinha verticalmente */
+    gap: 20px;                /* Espaço entre nome e botão */
+
+}
+
+.nome-candidato {
+    font-size: 22px;
+    font-weight: 500;
+    color: #ffffff;
+    text-align: center;
+}

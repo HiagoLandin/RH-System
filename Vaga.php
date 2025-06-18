@@ -22,7 +22,7 @@ class Vaga {
     }
 
   public function listar() {
-    $query = "SELECT v.*, e.nome AS nome_empresa 
+    $query = "SELECT v.*, e.nome AS nome_empresa , v.empresa_id 
               FROM $this->tabela v
               JOIN empresas e ON v.empresa_id = e.id";
               
@@ -65,7 +65,7 @@ public function buscarPorEmpresa($nomeEmpresa) {
 }
 
 public function listarPorEmpresa($empresaId) {
-    $query = "SELECT v.*, e.nome AS nome_empresa
+    $query = "SELECT v.*, e.nome AS nome_empresa , v.empresa_id 
               FROM $this->tabela v
               JOIN empresas e ON v.empresa_id = e.id
               WHERE v.empresa_id = ?";
@@ -139,6 +139,14 @@ public function filtrarVagas($filtros) {
 
     return $vagas;
 }
+
+public function excluir($id, $empresa_id) {
+    $query = "DELETE FROM $this->tabela WHERE id = ? AND empresa_id = ?";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param("ii", $id, $empresa_id);
+    return $stmt->execute();
+}
+
 
 
 }
