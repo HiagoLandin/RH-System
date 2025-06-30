@@ -124,8 +124,8 @@ $candidatos = $usuario->listarTodos(); // Método para listar todos os usuários
                                 <div class="anime-info">
                                     <div class="detalhes">
                                         <h4><strong>Empresa:</strong> <?php echo htmlspecialchars($vaga['nome_empresa']); ?></h4>
-                                        <p><strong>Descrição:</strong> <?php echo htmlspecialchars($vaga['descricao']); ?></p>
-                                        <p><strong>Requisitos:</strong> <?php echo htmlspecialchars($vaga['requisitos']); ?></p>
+                                       
+                                        
                                         <p><strong>Localização:</strong> <?php echo htmlspecialchars($vaga['localizacao']); ?></p>
                                         <p><strong>Tipo de Vaga:</strong> <?php echo htmlspecialchars($vaga['tipo_de_vaga']); ?></p>
                                         <a href="editar_vagas.php?id=<?= $vaga['id'] ?>" class="Editar">Editar Vaga</a>

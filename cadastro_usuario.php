@@ -60,7 +60,7 @@ unset($_SESSION['mensagem']); // Remove a mensagem após exibir
                 </div>
                 <div class="form-group">
                     <label for="descricao">descrição:</label>
-                    <input type="text" id="descricao" name="descricao" required>
+                    <input type="textarea" id="descricao" name="descricao" required>
                 </div>
                 <div class="form-group">
                     <label for="telefone">Telefone:</label>
